@@ -331,24 +331,37 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Map Section */}
-        <section className="py-8">
-          <div className="container-custom">
-            <div className="bg-gray-200 h-[400px] rounded-lg overflow-hidden">
-              {/* Placeholder for Google Map */}
-              <div className="w-full h-full flex items-center justify-center bg-gray-300">
-                <div className="text-gray-500 text-center">
-                  <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <p className="text-lg font-medium">Google Maps integration will be added here</p>
-                  <p>123 Industrial Area, Nairobi, Kenya</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+       {/* Map Section */}
+<section className="py-8">
+  <div className="container-custom">
+    <div className="relative bg-gray-200 h-[400px] rounded-lg overflow-hidden">
+      {/* Embedded Google Map */}
+      <iframe
+        title="Wings Engineering Services Map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.710869066814!2d37.0880112!3d-1.041453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4fb6d8dca0f3%3A0x926d175be64a844f!2sWings%20Engineering%20Services%20Ltd!5e0!3m2!1sen!2ske!4v1715418916812!5m2!1sen!2ske"
+        className="w-full h-full border-0"
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      {/* Map Marker Popup */}
+      <div className="absolute top-8 left-8 bg-white rounded-xl shadow-md p-4 max-w-xs z-10">
+        <h3 className="text-lg font-semibold text-gray-800">Wings Engineering Services Ltd</h3>
+        <p className="text-sm text-gray-600 mb-2">123 Industrial Area, Kenyatta Highway, Thika</p>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=Wings+Engineering+Services+Ltd,+Kenyatta+Highway,+Thika"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 transition"
+        >
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* Service Areas */}
         <section className="py-16 bg-gray-50">
