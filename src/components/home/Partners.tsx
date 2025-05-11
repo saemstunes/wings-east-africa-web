@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 const partners = [
-  { id: 1, name: 'Safaricom', logo: 'https://via.placeholder.com/200x80?text=Safaricom' },
+  { id: 1, name: 'Safaricom', logo: 'https://drive.google.com/file/d/1xTNXH9Qx2S-7aXiHrKC8eseELLZG_uUQ/view?usp=drive_link' },
   { id: 2, name: 'Davis & Shirtliff', logo: 'https://via.placeholder.com/200x80?text=Davis+%26+Shirtliff' },
   { id: 3, name: 'Lister Petter', logo: 'https://via.placeholder.com/200x80?text=Lister+Petter' },
   { id: 4, name: 'Kenya Power', logo: 'https://via.placeholder.com/200x80?text=Kenya+Power' },
