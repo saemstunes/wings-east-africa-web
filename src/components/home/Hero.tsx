@@ -12,7 +12,7 @@ interface SlideProps {
 const slides: SlideProps[] = [
   {
     id: 1,
-    image: 'https://unsplash.com/photos/a-large-engine-sitting-on-top-of-a-wooden-table-iKEZ46Rv7cE?q=80&w=1469&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1706722015091-58bb0f17cad1?q=80&w=2070&auto=format&fit=crop',
     title: 'Industrial Generators',
     description: 'High-performance power solutions for businesses across East Africa'
   },
