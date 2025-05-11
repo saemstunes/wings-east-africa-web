@@ -74,7 +74,7 @@ const products = [
     category: 'parts',
     image: 'https://media.greenmountaingenerators.com/wp-content/uploads/2014/12/02032446/MEP802A-MEP803A-MEP812A-MEP813A-Diesel-Fuel-Metering-Fuel-Pump-1024x389.jpg?q=80&w=1470&auto=format&fit=crop',
     shortDesc: 'Precision engineered for an economical drive, always',
-    fullDesc: 'This piece balances fuel delivery, effectively taking car shaking off and enhance your driving experience.',
+    fullDesc: 'This piece balances fuel delivery, effectively taking car shaking off and enhancing your driving experience.',
     specs: [
       { name: 'Compatibility', value: 'LPW2, LPW3, LPW4' },
       { name: 'Fuel Type', value: 'Diesel' },
