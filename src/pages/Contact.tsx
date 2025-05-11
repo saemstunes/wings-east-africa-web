@@ -56,7 +56,7 @@ const Contact = () => {
         <section className="relative bg-wings-navy py-20">
           <div className="absolute inset-0 opacity-20">
             <img 
-              src="https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=1470&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1601342550031-d6df73676153?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=1470&auto=format&fit=crop" 
               alt="Engineering office" 
               className="w-full h-full object-cover"
             />
@@ -217,12 +217,12 @@ const Contact = () => {
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold text-wings-navy">Visit Us</h3>
                       <p className="text-gray-600 mt-1">
-                        123 Industrial Area,<br />
-                        Nairobi, Kenya
+                        Township, Kenyatta Highway,<br />
+                        Thika, Kenya
                       </p>
                       <p className="text-gray-500 mt-1">
-                        Monday-Friday: 8am - 5pm<br />
-                        Saturday: 9am - 1pm
+                        Monday-Friday: 6am - 5pm<br />
+                        Saturday: 8am - 3pm
                       </p>
                     </div>
                   </div>
@@ -239,7 +239,7 @@ const Contact = () => {
                       <h3 className="text-lg font-semibold text-wings-navy">Call Us</h3>
                       <p className="text-gray-600 mt-1">
                         <a href="tel:+254123456789" className="hover:text-wings-orange transition-colors">
-                          +254 123 456 789
+                          +254 719 719 991
                         </a>
                       </p>
                       <p className="text-gray-600 mt-1">
@@ -261,12 +261,12 @@ const Contact = () => {
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold text-wings-navy">Email Us</h3>
                       <p className="text-gray-600 mt-1">
-                        <a href="mailto:info@wingsltd.com" className="hover:text-wings-orange transition-colors">
+                        <a href="mailto:sales@wingsengineeringservices.com" className="hover:text-wings-orange transition-colors">
                           info@wingsltd.com
                         </a>
                       </p>
                       <p className="text-gray-600 mt-1">
-                        <a href="mailto:support@wingsltd.com" className="hover:text-wings-orange transition-colors">
+                        <a href="mailto:sales@wingsengineeringservices.com" className="hover:text-wings-orange transition-colors">
                           support@wingsltd.com
                         </a>
                       </p>
@@ -369,7 +369,7 @@ const Contact = () => {
             <div className="text-center mb-12">
               <h2 className="heading-md text-wings-navy mb-4">Our Service Areas</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Wings Ltd. provides engineering solutions throughout East Africa, with focus on the following regions.
+                Wings Ltd. provides engineering solutions throughout East Africa, with focus on the following regions:
               </p>
             </div>
             
@@ -397,7 +397,7 @@ const Contact = () => {
         </section>
       </main>
       <Footer />
-      <WhatsAppButton phoneNumber="254123456789" />
+      <WhatsAppButton phoneNumber="254719 719991" />
     </>
   );
 };
