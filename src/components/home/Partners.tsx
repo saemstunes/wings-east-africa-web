@@ -32,7 +32,7 @@ const Partners = () => {
                 alt={`${partner.name} logo`}
                 className={`h-20 md:h-30 object-contain transition-opacity duration-300' ${
                   hoveredId !== null && hoveredId !== partner.id ? 'opacity-50' : 'opacity-100'
-                }`}
+                } ${partner.name === 'Safaricom' ? 'h-24 md:h-32' : 'h-20 md:h-30'}`}
               />
             </div>
           ))}
