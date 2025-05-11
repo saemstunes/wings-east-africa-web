@@ -56,7 +56,7 @@ const products = [
     id: 4,
     name: 'Lister Petter K1 72 Diesel Engine',
     category: 'engines',
-    image: 'https://image.made-in-china.com/155f0j00EvZUrDplZAoO/296cc-Small-Air-Cooled-Diesel-Motor-178.webpq=80&w=1470&auto=format&fit=crop',
+    image: 'https://image.made-in-china.com/155f0j00EvZUrDplZAoO/296cc-Small-Air-Cooled-Diesel-Motor-178.webp?q=80&w=1470&auto=format&fit=crop',
     shortDesc: 'High-performance engine in a robust build',
     fullDesc: 'An air-cooled, single-cylinder solution for situations requiring a compact and efficient power source.  ',
     specs: [
