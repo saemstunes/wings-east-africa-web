@@ -9,15 +9,15 @@ const products = [
     id: 1,
     name: 'Industrial Generator 500kVA',
     category: 'generators',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45249ff78?q=80&w=1469&auto=format&fit=crop',
-    shortDesc: 'High-output diesel generator for industrial applications',
-    fullDesc: 'Our flagship 500kVA industrial diesel generator provides reliable power for large-scale operations. Built with premium components for durability and efficiency.',
+    image: 'https://www.sleeman-hawken.com/wp-content/uploads/2022/08/Lister-Petter-TR-Engines-4.png?q=80&w=1469&auto=format&fit=crop',
+    shortDesc: 'Powerful, robust & easy-to-maintain air-cooled engine',
+    fullDesc: 'A compact, air-cooled diesel generator engine designed for unregulated emissions territories. With fixed speeds of 1500 rpm, up to 7.4kW power output, direct injection, and durable construction, it offers reliable performance and low maintenance.',
     specs: [
-      { name: 'Power Output', value: '500kVA' },
+      { name: 'Power Output', value: '7.4kW' },
       { name: 'Fuel Type', value: 'Diesel' },
-      { name: 'Engine', value: 'Cummins QSX15-G8' },
-      { name: 'Dimensions', value: '4.5m x 1.6m x 2.2m' },
-      { name: 'Weight', value: '5,200kg' },
+      { name: 'Series', value: 'TR 3' },
+      { name: 'Injection', value: 'Direct' },
+      { name: 'Max Power', value: '1500 r/min—18.5kW' },
     ]
   },
   {
