@@ -16,7 +16,7 @@ const testimonials = [
     author: "James Omondi",
     position: "Plant Manager",
     company: "Kenya Breweries Limited",
-    image: "https://randomuser.me/api/portraits/men/41.jpg"
+    image: "https://i.imgur.com/dlxf5E9.jpeg"
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const testimonials = [
     author: "Thomas Mutiso",
     position: "Operations Director",
     company: "East African Mining Co.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
+    image: "https://i.imgur.com/OaxswQ9.jpeg"
   }
 ];
 
