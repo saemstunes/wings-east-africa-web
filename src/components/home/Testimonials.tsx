@@ -8,7 +8,7 @@ const testimonials = [
     author: "Dr. Sarah Kamau",
     position: "Facilities Director",
     company: "Nairobi Hospital",
-    image: "https://randomuser.me/api/portraits/women/32.jpg"
+    image: "https://i.imgur.com/cSyi3sm.jpeg"
   },
   {
     id: 2,
