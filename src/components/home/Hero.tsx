@@ -24,7 +24,7 @@ const slides: SlideProps[] = [
   },
   {
     id: 3,
-    image: 'https://images.pexels.com/photos/955395/pexels-photo-955395.jpeg?auto=compress&cs=tinysrgb',
+    image: 'https://images.pexels.com/photos/955395/pexels-photo-955395.jpeg?auto=compress&cs=tinysrgbq=80&w=2070&auto=format&fit=crop',
     title: 'Expert Maintenance',
     description: 'Professional service and maintenance from experienced technicians'
   }
