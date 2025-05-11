@@ -30,7 +30,7 @@ const Partners = () => {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className={`h-12 md:h-16 object-contain transition-opacity duration-300 ${
+                className={`max-h-full max-w-full object-contain transition-opacity duration-300h-12 md:h-16 object-contain transition-opacity duration-300 ${
                   hoveredId !== null && hoveredId !== partner.id ? 'opacity-50' : 'opacity-100'
                 }`}
               />
