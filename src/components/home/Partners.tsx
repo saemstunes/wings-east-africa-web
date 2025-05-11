@@ -3,10 +3,10 @@ import { useState } from 'react';
 
 const partners = [
   { id: 1, name: 'Safaricom', logo: 'https://i.imgur.com/3Ma4M2H.png' },
-  { id: 2, name: 'Davis & Shirtliff', logo: 'https://via.placeholder.com/200x80?text=Davis+%26+Shirtliff' },
-  { id: 3, name: 'Lister Petter', logo: 'https://via.placeholder.com/200x80?text=Lister+Petter' },
-  { id: 4, name: 'Kenya Power', logo: 'https://via.placeholder.com/200x80?text=Kenya+Power' },
-  { id: 5, name: 'Total Energies', logo: 'https://via.placeholder.com/200x80?text=Total+Energies' },
+  { id: 2, name: 'Davis & Shirtliff', logo: 'https://i.imgur.com/aKBCcDv.png' },
+  { id: 3, name: 'Lister Petter', logo: 'https://i.imgur.com/5HOYAVO.png' },
+  { id: 4, name: 'Kenya Power', logo: 'https://i.imgur.com/iGrVCMv.png' },
+  { id: 5, name: 'Total Energies', logo: 'https://i.imgur.com/5KzthvD.png' },
 ];
 
 const Partners = () => {
