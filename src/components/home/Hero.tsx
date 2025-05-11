@@ -24,9 +24,9 @@ const slides: SlideProps[] = [
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.pexels.com/photos/955395/pexels-photo-955395.jpeg?auto=compress&cs=tinysrgb',
     title: 'Expert Maintenance',
-    description: 'Professional service and maintenance from certified technicians'
+    description: 'Professional service and maintenance from experienced technicians'
   }
 ];
 
