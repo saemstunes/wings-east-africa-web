@@ -31,7 +31,7 @@ const About = () => {
         <section className="relative bg-wings-navy py-20">
           <div className="absolute inset-0 opacity-20">
             <img 
-              src="https://images.unsplash.com/photo-1546636889-ba9fdd63583e?q=80&w=1471&auto=format&fit=crop" 
+              src="https://images.pexels.com/photos/31973806/pexels-photo-31973806/free-photo-of-historic-siemens-halske-generator-at-zeche-zollern.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2?q=80&w=1471&auto=format&fit=crop" 
               alt="Engineering equipment" 
               className="w-full h-full object-cover"
             />
