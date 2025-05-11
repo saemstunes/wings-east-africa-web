@@ -348,9 +348,9 @@ const Contact = () => {
       {/* Map Marker Popup */}
       <div className="absolute top-8 left-8 bg-white rounded-xl shadow-md p-4 max-w-xs z-10">
         <h3 className="text-lg font-semibold text-gray-800">Wings Engineering Services Ltd</h3>
-        <p className="text-sm text-gray-600 mb-2">123 Industrial Area, Kenyatta Highway, Thika</p>
+        <p className="text-sm text-gray-600 mb-2">Township, Kenyatta Highway, Thika</p>
         <a
-          href="https://www.google.com/maps/dir/?api=1&destination=Wings+Engineering+Services+Ltd,+Kenyatta+Highway,+Thika"
+          href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Wings+Engineering+Services+Ltd,+Kenyatta+Highway,+Thika"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mt-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 transition"
