@@ -7,7 +7,7 @@ import WhatsAppButton from '../components/ui/WhatsAppButton';
 const products = [
   {
     id: 1,
-    name: 'Industrial Generator 500kVA',
+    name: 'TR Generator Engines TR3',
     category: 'generators',
     image: 'https://www.sleeman-hawken.com/wp-content/uploads/2022/08/Lister-Petter-TR-Engines-4.png?q=80&w=1469&auto=format&fit=crop',
     shortDesc: 'Powerful, robust & easy-to-maintain air-cooled engine',
