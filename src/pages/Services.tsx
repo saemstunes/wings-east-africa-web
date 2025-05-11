@@ -129,7 +129,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    description: 'Flexible rental options for generators from 10kVA to 500kVA. Perfect for construction sites, events, or temporary power needs. Includes delivery, setup, and technical support.'
+    description: 'Flexible rental options for generators from 5kVA to 500kVA. Perfect for construction sites, events, or temporary power needs. Includes delivery, setup, and technical support.'
   },
   {
     id: 4,
