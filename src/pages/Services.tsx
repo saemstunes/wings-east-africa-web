@@ -70,7 +70,7 @@ const products = [
   },
   {
     id: 5,
-    name: 'Lister Petter Diesel Fuel Injection Pump,
+    name: 'Lister Petter Diesel Fuel Injection Pump',
     category: 'parts',
     image: 'https://media.greenmountaingenerators.com/wp-content/uploads/2014/12/02032446/MEP802A-MEP803A-MEP812A-MEP813A-Diesel-Fuel-Metering-Fuel-Pump-1024x389.jpg?q=80&w=1470&auto=format&fit=crop',
     shortDesc: 'Precision engineered for an economical drive, always',
