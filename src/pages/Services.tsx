@@ -18,6 +18,7 @@ const products = [
       { name: 'Series', value: 'TR 3' },
       { name: 'Injection', value: 'Direct' },
       { name: 'Max Power', value: '1500 r/min—18.5kW' },
+      { name: 'Fixed Speeds', value: '1500rpm' },
     ]
   },
   {
