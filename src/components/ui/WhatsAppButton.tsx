@@ -35,7 +35,7 @@ const WhatsAppButton = ({ phoneNumber, message = "Hello! I'm interested in your 
       aria-label="Chat on WhatsApp"
     >
       <img 
-  src="https://toppng.com/uploads/preview/whatsapp-png-11545153908plo4ogbgqn.png" 
+  src="https://i.imgur.com/Ax2TeLJ.png" 
   alt="WhatsApp" 
   className="w-8 h-8 object-contain transition-transform duration-200 hover:scale-110"
         />
