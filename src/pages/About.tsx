@@ -20,7 +20,6 @@ const About = () => {
     { id: 3, name: 'Lister Petter', logo: 'https://i.imgur.com/5HOYAVO.png' },
     { id: 4, name: 'Kenya Power', logo: 'https://i.imgur.com/iGrVCMv.png' },
     { id: 5, name: 'Total Energies', logo: 'https://i.imgur.com/5KzthvD.png' },
-    { id: 6, name: 'Crown Paints', logo: 'https://via.placeholder.com/200x80?text=Crown+Paints' },
   ];
 
   return (
