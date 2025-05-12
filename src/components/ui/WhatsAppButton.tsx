@@ -37,7 +37,7 @@ const WhatsAppButton = ({ phoneNumber, message = "Hello! I'm interested in your 
       <img 
   src="https://i.imgur.com/Ax2TeLJ.png" 
   alt="WhatsApp" 
-  className="w-28 h-28 object-contain transition-transform duration-200 hover:scale-110"
+  className="w-32 h-32 object-contain transition-transform duration-200 hover:scale-110"
         />
       
       <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs animate-pulse-slow">
