@@ -8,18 +8,18 @@ const About = () => {
   const timeline = [
     { year: '2005', event: 'Wings Ltd. founded in Nairobi' },
     { year: '2008', event: 'Became official Lister Petter distributor for East Africa' },
-    { year: '2012', event: 'Expanded operations to Uganda and Tanzania' },
+    { year: '2012', event: 'Expanded operations to Eldoret and Kisumu' },
     { year: '2016', event: 'Launched 24/7 emergency repair services' },
     { year: '2019', event: 'Partnered with Safaricom for IoT generator monitoring' },
     { year: '2022', event: 'Opened a state-of-the-art service center in Mombasa' },
   ];
 
   const partners = [
-    { id: 1, name: 'Safaricom', logo: 'https://via.placeholder.com/200x80?text=Safaricom' },
-    { id: 2, name: 'Davis & Shirtliff', logo: 'https://via.placeholder.com/200x80?text=Davis+%26+Shirtliff' },
-    { id: 3, name: 'Lister Petter', logo: 'https://via.placeholder.com/200x80?text=Lister+Petter' },
-    { id: 4, name: 'Kenya Power', logo: 'https://via.placeholder.com/200x80?text=Kenya+Power' },
-    { id: 5, name: 'Total Energies', logo: 'https://via.placeholder.com/200x80?text=Total+Energies' },
+    { id: 1, name: 'Safaricom', logo: 'https://i.imgur.com/3Ma4M2H.png' },
+    { id: 2, name: 'Davis & Shirtliff', logo: 'https://i.imgur.com/aKBCcDv.png' },
+    { id: 3, name: 'Lister Petter', logo: 'https://i.imgur.com/5HOYAVO.png' },
+    { id: 4, name: 'Kenya Power', logo: 'https://i.imgur.com/iGrVCMv.png' },
+    { id: 5, name: 'Total Energies', logo: 'https://i.imgur.com/5KzthvD.png' },
     { id: 6, name: 'Crown Paints', logo: 'https://via.placeholder.com/200x80?text=Crown+Paints' },
   ];
 
