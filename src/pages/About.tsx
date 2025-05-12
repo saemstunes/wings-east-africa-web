@@ -171,7 +171,7 @@ const About = () => {
                   <img 
                     src={partner.logo} 
                     alt={`${partner.name} logo`} 
-                    className={'h-12 object-contain' ${partner.name === 'Safaricom' ? 'h-24 md:h-32' : 'h-12'}
+                    className={`h-12 object-contain ${partner.name === 'Safaricom' ? 'h-24 md:h-32' : 'h-12'}`}
                     }
                   />
                 </div>
