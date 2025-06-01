@@ -9,6 +9,24 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      admin_credentials: {
+        Row: {
+          id: number
+          password_hash: string
+          username: string
+        }
+        Insert: {
+          id?: never
+          password_hash: string
+          username: string
+        }
+        Update: {
+          id?: never
+          password_hash?: string
+          username?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           company: string | null
@@ -199,6 +217,104 @@ export type Database = {
             columns: ["contact_submission_id"]
             isOneToOne: false
             referencedRelation: "contact_submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      request_status_history: {
+        Row: {
+          changed_by: string | null
+          created_at: string
+          id: string
+          new_status: string
+          notes: string | null
+          old_status: string | null
+          request_tracking_id: string | null
+        }
+        Insert: {
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_status: string
+          notes?: string | null
+          old_status?: string | null
+          request_tracking_id?: string | null
+        }
+        Update: {
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_status?: string
+          notes?: string | null
+          old_status?: string | null
+          request_tracking_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "request_status_history_request_tracking_id_fkey"
+            columns: ["request_tracking_id"]
+            isOneToOne: false
+            referencedRelation: "request_tracking"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      request_tracking: {
+        Row: {
+          assigned_to: string | null
+          contact_submission_id: number | null
+          created_at: string
+          customer_notified_at: string | null
+          follow_up_date: string | null
+          id: string
+          notes: string | null
+          priority: string | null
+          quote_id: string | null
+          status: string
+          status_updated_at: string
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          contact_submission_id?: number | null
+          created_at?: string
+          customer_notified_at?: string | null
+          follow_up_date?: string | null
+          id?: string
+          notes?: string | null
+          priority?: string | null
+          quote_id?: string | null
+          status?: string
+          status_updated_at?: string
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          contact_submission_id?: number | null
+          created_at?: string
+          customer_notified_at?: string | null
+          follow_up_date?: string | null
+          id?: string
+          notes?: string | null
+          priority?: string | null
+          quote_id?: string | null
+          status?: string
+          status_updated_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "request_tracking_contact_submission_id_fkey"
+            columns: ["contact_submission_id"]
+            isOneToOne: false
+            referencedRelation: "contact_submissions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "request_tracking_quote_id_fkey"
+            columns: ["quote_id"]
+            isOneToOne: false
+            referencedRelation: "quotes"
             referencedColumns: ["id"]
           },
         ]

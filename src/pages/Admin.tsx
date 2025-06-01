@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -14,6 +13,7 @@ import AdminNotifications from '@/components/admin/AdminNotifications';
 import AdminQuotes from '@/components/admin/AdminQuotes';
 import AdminIntegrations from '@/components/admin/AdminIntegrations';
 import AdminOverview from '@/components/admin/AdminOverview';
+import RequestTracking from '@/components/admin/RequestTracking';
 
 const Admin = () => {
   const [unreadNotifications, setUnreadNotifications] = useState(0);
@@ -74,7 +74,7 @@ const Admin = () => {
         <section className="py-6 sm:py-8">
           <div className="container-custom">
             <Tabs defaultValue="overview" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 gap-1">
+              <TabsList className="grid w-full grid-cols-3 lg:grid-cols-7 gap-1">
                 <TabsTrigger value="overview" className="flex items-center gap-2 text-xs sm:text-sm">
                   <BarChart3 className="w-4 h-4" />
                   <span className="hidden sm:inline">Overview</span>
@@ -82,6 +82,10 @@ const Admin = () => {
                 <TabsTrigger value="requests" className="flex items-center gap-2 text-xs sm:text-sm">
                   <MessageSquare className="w-4 h-4" />
                   <span className="hidden sm:inline">Requests</span>
+                </TabsTrigger>
+                <TabsTrigger value="tracking" className="flex items-center gap-2 text-xs sm:text-sm">
+                  <TrendingUp className="w-4 h-4" />
+                  <span className="hidden sm:inline">Tracking</span>
                 </TabsTrigger>
                 <TabsTrigger value="inventory" className="flex items-center gap-2 text-xs sm:text-sm">
                   <Package className="w-4 h-4" />
@@ -112,6 +116,10 @@ const Admin = () => {
 
               <TabsContent value="requests">
                 <AdminPartRequests />
+              </TabsContent>
+
+              <TabsContent value="tracking">
+                <RequestTracking />
               </TabsContent>
 
               <TabsContent value="inventory">

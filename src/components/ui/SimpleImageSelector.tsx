@@ -1,6 +1,6 @@
-
 import { useState, useRef } from 'react';
 import { X, Upload, Camera } from 'lucide-react';
+import MobilePartSelector from './MobilePartSelector';
 
 interface SimpleImageSelectorProps {
   image: string;
@@ -9,7 +9,7 @@ interface SimpleImageSelectorProps {
   onClose: () => void;
 }
 
-const MAX_URL_LENGTH = 1800; // Safe URL length limit
+const MAX_URL_LENGTH = 1800;
 
 const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleImageSelectorProps) => {
   const [selectedPoint, setSelectedPoint] = useState<{ x: number; y: number } | null>(null);
@@ -17,6 +17,22 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
   const [isProcessing, setIsProcessing] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Detect mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   window.innerWidth <= 768;
+
+  // Use mobile component for mobile devices
+  if (isMobile) {
+    return (
+      <MobilePartSelector
+        image={image}
+        onSelect={onSelect}
+        productName={productName}
+        onClose={onClose}
+      />
+    );
+  }
 
   const handleImageClick = (e: React.MouseEvent<HTMLImageElement>) => {
     if (!imageRef.current) return;
@@ -30,11 +46,9 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
 
   const storeImageSafely = (dataUrl: string, metadata: any) => {
     try {
-      // Clear any existing request data first
       sessionStorage.removeItem('requestImage');
       sessionStorage.removeItem('requestMetadata');
       
-      // Store the image data
       sessionStorage.setItem('requestImage', dataUrl);
       sessionStorage.setItem('requestMetadata', JSON.stringify(metadata));
       
@@ -42,14 +56,12 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
       return true;
     } catch (error) {
       console.error('Failed to store image in sessionStorage:', error);
-      // If sessionStorage fails, try with a compressed version
       try {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         const img = new Image();
         
         img.onload = () => {
-          // Compress image to smaller size
           const maxWidth = 800;
           const maxHeight = 600;
           let { width, height } = img;
@@ -94,11 +106,9 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
       canvas.width = img.width;
       canvas.height = img.height;
       
-      // Draw the original image
       ctx?.drawImage(img, 0, 0);
       
       if (ctx) {
-        // Draw selection marker
         const markerX = (selectedPoint.x / 100) * canvas.width;
         const markerY = (selectedPoint.y / 100) * canvas.height;
         
@@ -110,7 +120,6 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
         ctx.fill();
         ctx.stroke();
         
-        // Add text indicator
         ctx.fillStyle = 'white';
         ctx.font = 'bold 14px Arial';
         ctx.textAlign = 'center';
@@ -126,14 +135,11 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
         selectionType: 'gallery'
       };
       
-      // Try to store safely
       const stored = storeImageSafely(dataUrl, metadata);
       
       if (stored) {
-        // Navigate to contact page
         window.location.href = '/contact';
       } else {
-        // Fallback: call onSelect with the data (existing behavior)
         console.log('Falling back to direct data passing');
         onSelect(dataUrl, metadata);
       }
@@ -151,7 +157,6 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
     
     setIsProcessing(true);
     
-    // Check file size (limit to 5MB)
     if (file.size > 5 * 1024 * 1024) {
       alert('Please select an image smaller than 5MB');
       setIsProcessing(false);
@@ -171,14 +176,11 @@ const SimpleImageSelector = ({ image, onSelect, productName, onClose }: SimpleIm
         selectionType: 'upload'
       };
       
-      // Try to store safely
       const stored = storeImageSafely(dataUrl, metadata);
       
       if (stored) {
-        // Navigate to contact page
         window.location.href = '/contact';
       } else {
-        // Fallback: call onSelect with the data
         console.log('Falling back to direct data passing for uploaded file');
         onSelect(dataUrl, metadata);
       }
