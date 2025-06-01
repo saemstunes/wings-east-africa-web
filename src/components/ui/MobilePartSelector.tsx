@@ -34,7 +34,7 @@ const MobilePartSelector = ({ image, onSelect, productName, onClose }: MobilePar
     const now = Date.now();
     const DOUBLE_TAP_DELAY = 300;
     if (now - lastTap < DOUBLE_TAP_DELAY) {
-      handleDoubleTap(touch);
+      handleDoubleTap({ clientX: touch.clientX, clientY: touch.clientY });
     }
     setLastTap(now);
   };
@@ -61,7 +61,7 @@ const MobilePartSelector = ({ image, onSelect, productName, onClose }: MobilePar
     }
   };
 
-  const handleDoubleTap = (touch: Touch) => {
+  const handleDoubleTap = (touch: { clientX: number; clientY: number }) => {
     if (!imageRef.current || !containerRef.current) return;
     
     const rect = containerRef.current.getBoundingClientRect();

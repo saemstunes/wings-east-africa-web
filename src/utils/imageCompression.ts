@@ -50,11 +50,10 @@ export const compressImage = (
 
           // Check if further compression is needed
           const sizeKB = blob.size / 1024;
-          let finalQuality = quality;
 
           if (sizeKB > maxSizeKB && outputFormat === 'jpeg') {
             // Reduce quality further if size is still too large
-            finalQuality = Math.max(0.1, quality * (maxSizeKB / sizeKB));
+            const adjustedQuality = Math.max(0.1, quality * (maxSizeKB / sizeKB));
             
             canvas.toBlob(
               (compressedBlob) => {
@@ -80,7 +79,7 @@ export const compressImage = (
                 reader.readAsDataURL(compressedFile);
               },
               `image/${outputFormat}`,
-              finalQuality
+              adjustedQuality
             );
           } else {
             const compressedFile = new File([blob], file.name, {
@@ -101,7 +100,7 @@ export const compressImage = (
           }
         },
         `image/${outputFormat}`,
-        finalQuality
+        quality
       );
     };
 
@@ -114,9 +113,12 @@ export const compressImage = (
     img.src = objectUrl;
 
     // Clean up object URL after use
-    img.onload = () => {
+    const originalOnload = img.onload;
+    img.onload = (event) => {
       URL.revokeObjectURL(objectUrl);
-      img.onload(); // Call the original onload
+      if (originalOnload) {
+        originalOnload.call(img, event);
+      }
     };
   });
 };
@@ -175,9 +177,12 @@ export const convertToWebP = (file: File, quality: number = 0.8): Promise<File> 
     const objectUrl = URL.createObjectURL(file);
     img.src = objectUrl;
 
-    img.onload = () => {
+    const originalOnload = img.onload;
+    img.onload = (event) => {
       URL.revokeObjectURL(objectUrl);
-      img.onload(); // Call the original onload
+      if (originalOnload) {
+        originalOnload.call(img, event);
+      }
     };
   });
 };
