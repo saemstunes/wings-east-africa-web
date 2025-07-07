@@ -7,6 +7,11 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instanciate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "12.2.3 (519615d)"
+  }
   public: {
     Tables: {
       admin_credentials: {
@@ -137,6 +142,168 @@ export type Database = {
           type?: string
         }
         Relationships: []
+      }
+      product_catalog: {
+        Row: {
+          additional_images: string[] | null
+          applications: string[] | null
+          brand: string
+          category: string
+          compatible_with: string[] | null
+          cooling_type: string | null
+          created_at: string
+          currency: string | null
+          cylinders: number | null
+          dimensions: string | null
+          engine_brand: string | null
+          engine_model: string | null
+          engine_type: string | null
+          frequency: string | null
+          fuel_type: string | null
+          full_description: string | null
+          id: string
+          key_features: string[] | null
+          maintenance_notes: string | null
+          model: string | null
+          mounting_type: string | null
+          name: string
+          phase_type: string | null
+          power_kva: number | null
+          power_kw: number | null
+          price: number | null
+          primary_image_url: string | null
+          rpm: string | null
+          service_interval_hours: number | null
+          short_description: string | null
+          starting_type: string | null
+          status: string | null
+          stock_quantity: number | null
+          subcategory: string | null
+          updated_at: string
+          voltage: string | null
+          weight_kg: number | null
+        }
+        Insert: {
+          additional_images?: string[] | null
+          applications?: string[] | null
+          brand: string
+          category: string
+          compatible_with?: string[] | null
+          cooling_type?: string | null
+          created_at?: string
+          currency?: string | null
+          cylinders?: number | null
+          dimensions?: string | null
+          engine_brand?: string | null
+          engine_model?: string | null
+          engine_type?: string | null
+          frequency?: string | null
+          fuel_type?: string | null
+          full_description?: string | null
+          id?: string
+          key_features?: string[] | null
+          maintenance_notes?: string | null
+          model?: string | null
+          mounting_type?: string | null
+          name: string
+          phase_type?: string | null
+          power_kva?: number | null
+          power_kw?: number | null
+          price?: number | null
+          primary_image_url?: string | null
+          rpm?: string | null
+          service_interval_hours?: number | null
+          short_description?: string | null
+          starting_type?: string | null
+          status?: string | null
+          stock_quantity?: number | null
+          subcategory?: string | null
+          updated_at?: string
+          voltage?: string | null
+          weight_kg?: number | null
+        }
+        Update: {
+          additional_images?: string[] | null
+          applications?: string[] | null
+          brand?: string
+          category?: string
+          compatible_with?: string[] | null
+          cooling_type?: string | null
+          created_at?: string
+          currency?: string | null
+          cylinders?: number | null
+          dimensions?: string | null
+          engine_brand?: string | null
+          engine_model?: string | null
+          engine_type?: string | null
+          frequency?: string | null
+          fuel_type?: string | null
+          full_description?: string | null
+          id?: string
+          key_features?: string[] | null
+          maintenance_notes?: string | null
+          model?: string | null
+          mounting_type?: string | null
+          name?: string
+          phase_type?: string | null
+          power_kva?: number | null
+          power_kw?: number | null
+          price?: number | null
+          primary_image_url?: string | null
+          rpm?: string | null
+          service_interval_hours?: number | null
+          short_description?: string | null
+          starting_type?: string | null
+          status?: string | null
+          stock_quantity?: number | null
+          subcategory?: string | null
+          updated_at?: string
+          voltage?: string | null
+          weight_kg?: number | null
+        }
+        Relationships: []
+      }
+      product_service_relations: {
+        Row: {
+          created_at: string
+          id: string
+          is_recommended: boolean | null
+          notes: string | null
+          product_id: string | null
+          service_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_recommended?: boolean | null
+          notes?: string | null
+          product_id?: string | null
+          service_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_recommended?: boolean | null
+          notes?: string | null
+          product_id?: string | null
+          service_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_service_relations_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product_catalog"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_service_relations_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "service_catalog"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       products: {
         Row: {
@@ -319,6 +486,84 @@ export type Database = {
           },
         ]
       }
+      service_catalog: {
+        Row: {
+          advance_notice_days: number | null
+          applicable_products: string[] | null
+          available_locations: string[] | null
+          base_price: number | null
+          category: string
+          created_at: string
+          currency: string | null
+          description: string
+          duration_hours: number | null
+          equipment_brands: string[] | null
+          frequency: string | null
+          id: string
+          included_items: string[] | null
+          interval_hours: number | null
+          mobile_service: boolean | null
+          name: string
+          parts_included: boolean | null
+          price_type: string | null
+          requirements: string[] | null
+          service_type: string
+          status: string | null
+          tools_required: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          advance_notice_days?: number | null
+          applicable_products?: string[] | null
+          available_locations?: string[] | null
+          base_price?: number | null
+          category: string
+          created_at?: string
+          currency?: string | null
+          description: string
+          duration_hours?: number | null
+          equipment_brands?: string[] | null
+          frequency?: string | null
+          id?: string
+          included_items?: string[] | null
+          interval_hours?: number | null
+          mobile_service?: boolean | null
+          name: string
+          parts_included?: boolean | null
+          price_type?: string | null
+          requirements?: string[] | null
+          service_type: string
+          status?: string | null
+          tools_required?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          advance_notice_days?: number | null
+          applicable_products?: string[] | null
+          available_locations?: string[] | null
+          base_price?: number | null
+          category?: string
+          created_at?: string
+          currency?: string | null
+          description?: string
+          duration_hours?: number | null
+          equipment_brands?: string[] | null
+          frequency?: string | null
+          id?: string
+          included_items?: string[] | null
+          interval_hours?: number | null
+          mobile_service?: boolean | null
+          name?: string
+          parts_included?: boolean | null
+          price_type?: string | null
+          requirements?: string[] | null
+          service_type?: string
+          status?: string | null
+          tools_required?: string[] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           base_price: number | null
@@ -374,21 +619,25 @@ export type Database = {
   }
 }
 
-type DefaultSchema = Database[Extract<keyof Database, "public">]
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
 
 export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-        Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-      Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
       Row: infer R
     }
     ? R
@@ -406,14 +655,16 @@ export type Tables<
 export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Insert: infer I
     }
     ? I
@@ -429,14 +680,16 @@ export type TablesInsert<
 export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Update: infer U
     }
     ? U
@@ -452,14 +705,16 @@ export type TablesUpdate<
 export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   EnumName extends DefaultSchemaEnumNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
     : never = never,
-> = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
     ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
     : never
@@ -467,14 +722,16 @@ export type Enums<
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
-> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
     ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
