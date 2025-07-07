@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -22,6 +21,19 @@ const Services = () => {
   const [galleryProductName, setGalleryProductName] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
+
+  // Image URL Helper Function (CRITICAL FIX)
+  const getImageUrl = (path: string | null) => {
+    if (!path) return '/placeholder.svg'; // Use default placeholder
+    
+    // Handle absolute URLs (http/https)
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path;
+    }
+    
+    // Handle relative paths - ensure leading slash
+    return path.startsWith('/') ? path : `/${path}`;
+  };
 
   // Fetch products from database
   const { data: products = [], isLoading: productsLoading } = useQuery({
@@ -93,11 +105,13 @@ const Services = () => {
   }, [location]);
 
   const openGallery = (product: any) => {
-    const images = product.additional_images && product.additional_images.length > 0 
-      ? product.additional_images.slice(0, 5) // Maximum of 5 images
-      : product.primary_image_url 
-        ? [product.primary_image_url] 
-        : [];
+    const primary = getImageUrl(product.primary_image_url);
+    const additional = (product.additional_images || []).map(getImageUrl);
+    
+    const images = additional.length > 0 
+      ? additional.slice(0, 5) // Maximum of 5 images
+      : primary ? [primary] : [];
+      
     setGalleryImages(images);
     setGalleryProductName(product.name);
     setGalleryOpen(true);
@@ -170,7 +184,7 @@ const Services = () => {
         <section className="relative bg-wings-navy py-20">
           <div className="absolute inset-0 opacity-20">
             <img 
-              src="https://i.imgur.com/iOeMacP.jpeg?q=80&w=1470&auto=format&fit=crop" 
+              src={getImageUrl('https://i.imgur.com/iOeMacP.jpeg?q=80&w=1470&auto=format&fit=crop')} 
               alt="Engineering equipment" 
               className="w-full h-full object-cover"
             />
@@ -355,7 +369,7 @@ const Services = () => {
                       >
                         <div className="relative h-48 overflow-hidden">
                           <img 
-                            src={product.primary_image_url || 'https://via.placeholder.com/400x300?text=No+Image'}
+                            src={getImageUrl(product.primary_image_url)}
                             alt={product.name}
                             className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                           />
@@ -415,7 +429,7 @@ const Services = () => {
                         <div className="flex flex-col md:flex-row">
                           <div className="md:w-1/3 lg:w-1/4">
                             <img 
-                              src={product.primary_image_url || 'https://via.placeholder.com/400x300?text=No+Image'}
+                              src={getImageUrl(product.primary_image_url)}
                               alt={product.name}
                               className="w-full h-64 md:h-full object-cover transition-transform duration-300 hover:scale-105"
                             />
@@ -520,7 +534,7 @@ const Services = () => {
                       <div>
                         <div className="rounded-lg overflow-hidden mb-4">
                           <img 
-                            src={selectedProductData.primary_image_url || 'https://via.placeholder.com/400x300?text=No+Image'}
+                            src={getImageUrl(selectedProductData.primary_image_url)}
                             alt={selectedProductData.name}
                             className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                           />
