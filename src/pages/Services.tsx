@@ -22,17 +22,28 @@ const Services = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
 
-  // Image URL Helper Function (CRITICAL FIX)
+  // Enhanced Image URL Helper (handles spaces and special characters)
   const getImageUrl = (path: string | null) => {
-    if (!path) return '/placeholder.svg'; // Use default placeholder
+    if (!path) return '/placeholder.svg';
     
-    // Handle absolute URLs (http/https)
+    // Handle absolute URLs
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
     }
     
-    // Handle relative paths - ensure leading slash
-    return path.startsWith('/') ? path : `/${path}`;
+    // Split path into directory and filename
+    const lastSlashIndex = path.lastIndexOf('/');
+    
+    // Handle paths without directories
+    if (lastSlashIndex === -1) {
+      return `/${encodeURIComponent(path)}`;
+    }
+    
+    const directory = path.substring(0, lastSlashIndex + 1);
+    const filename = path.substring(lastSlashIndex + 1);
+    
+    // Encode only the filename portion
+    return `${directory}${encodeURIComponent(filename)}`;
   };
 
   // Fetch products from database
@@ -105,11 +116,13 @@ const Services = () => {
   }, [location]);
 
   const openGallery = (product: any) => {
-    const primary = getImageUrl(product.primary_image_url);
-    const additional = (product.additional_images || []).map(getImageUrl);
+    const primary = product.primary_image_url ? getImageUrl(product.primary_image_url) : null;
+    const additional = (product.additional_images || [])
+      .map(getImageUrl)
+      .filter(Boolean);
     
     const images = additional.length > 0 
-      ? additional.slice(0, 5) // Maximum of 5 images
+      ? additional.slice(0, 5)
       : primary ? [primary] : [];
       
     setGalleryImages(images);
