@@ -504,7 +504,7 @@ const getImageUrl = (path: string) => {
                       <div>
                         <div className="rounded-lg overflow-hidden mb-4">
                           <img 
-                            src={selectedProductData.primary_image_url || 'https://via.placeholder.com/400x300?text=No+Image'}
+                            src={getImageUrl(selectedProductData.primary_image_url) || 'https://via.placeholder.com/400x300?text=No+Image'}
                             alt={selectedProductData.name}
                             className="w-full h-auto object-cover"
                           />
