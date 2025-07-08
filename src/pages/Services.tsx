@@ -8,8 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import MobilePartSelector from '@/components/ui/MobilePartSelector';
-import SimpleImageSelector from '@/components/ui/SimpleImageSelector';
+import { MobilePartSelector } from '@/components/ui/MobilePartSelector';
+import { SimpleImageSelector } from '@/components/ui/SimpleImageSelector';
 import ImageManager from '@/components/admin/ImageManager';
 import { getImageUrl } from '@/utils/imageManager';
 import { Settings, Wrench, Cog, Package, Zap } from 'lucide-react';
@@ -643,12 +643,7 @@ const Services = () => {
           <div className="mt-6">
             {partRequestProduct && (
               <MobilePartSelector
-                image={getImageUrl(partRequestProduct.primary_image_url)}
-                onSelect={(imageData: string, metadata: any) => {
-                  // Handle the selection
-                  console.log('Part selected:', { imageData, metadata });
-                }}
-                productName={partRequestProduct.name}
+                product={partRequestProduct}
                 onClose={() => {
                   setIsMobilePartSelectorOpen(false);
                   setPartRequestProduct(null);
