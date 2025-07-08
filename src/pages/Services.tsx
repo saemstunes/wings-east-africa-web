@@ -95,11 +95,12 @@ const Services = () => {
   // Add this helper function at the top of your component
 const getImageUrl = (path: string) => {
   if (!path) return 'https://via.placeholder.com/400x300?text=No+Image';
+  
+  // If it's already a full URL, return as-is
   if (path.startsWith('http')) return path;
   
-  // Extract filename from path
-  const filename = path.split('/').pop();
-  return `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/product_catalog/${encodeURIComponent(filename)}`;
+  // If it's a relative path, convert to full URL
+  return `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/${path}`;
 };
 
   const openGallery = (product: any) => {
