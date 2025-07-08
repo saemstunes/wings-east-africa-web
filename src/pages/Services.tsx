@@ -626,7 +626,35 @@ const getImageUrl = (path: string) => {
         </a>
         <Button 
           variant="outline"
-          className="border-white text-wings-navy dark:text-white hover:bg-white dark:hover:bg-wings-navy hover:text-wings-navy dark:hover:text-white flex items-center"
+          className="
+  border-white 
+  text-wings-navy 
+  dark:text-white 
+  hover:text-[#1e3a8a] 
+  dark:hover:text-[#e5e7eb] 
+  hover:bg-white 
+  dark:hover:bg-wings-navy 
+
+  transition-colors 
+  duration-300 
+  ease-in-out 
+
+  relative 
+  after:content-[''] 
+  after:absolute 
+  after:left-0 
+  after:bottom-0 
+  after:h-[2px] 
+  after:w-0 
+  after:bg-current 
+  hover:after:w-full 
+  after:transition-all 
+  after:duration-300 
+
+  flex 
+  items-center
+"
+
           onClick={() => {
             window.open('https://wa.me/254719719991?text=I%20need%20a%20custom%20power%20solution.%20Please%20contact%20me.', '_blank');
           }}
