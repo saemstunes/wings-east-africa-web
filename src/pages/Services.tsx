@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -22,7 +23,7 @@ const Services = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
 
-  // Enhanced Image URL Helper (handles spaces and special characters)
+  // Fixed Image URL Helper - handles relative paths without encoding
   const getImageUrl = (path: string | null) => {
     if (!path) return '/placeholder.svg';
     
@@ -31,19 +32,8 @@ const Services = () => {
       return path;
     }
     
-    // Split path into directory and filename
-    const lastSlashIndex = path.lastIndexOf('/');
-    
-    // Handle paths without directories
-    if (lastSlashIndex === -1) {
-      return `/${encodeURIComponent(path)}`;
-    }
-    
-    const directory = path.substring(0, lastSlashIndex + 1);
-    const filename = path.substring(lastSlashIndex + 1);
-    
-    // Encode only the filename portion
-    return `${directory}${encodeURIComponent(filename)}`;
+    // For relative paths, ensure they start with / but don't encode the filename
+    return path.startsWith('/') ? path : `/${path}`;
   };
 
   // Fetch products from database
@@ -238,7 +228,7 @@ const Services = () => {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {services.map((service) => (
-                  <Card key={service.id} className="flex hover:shadow-lg transition-shadow duration-300">
+                  <Card key={service.id} className="flex hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer hover:border-wings-orange">
                     <div className="p-6 mr-6 flex-shrink-0">
                       {getServiceIcon(service.category)}
                     </div>
