@@ -100,10 +100,10 @@ const getImageUrl = (path: string) => {
 
   const openGallery = (product: any) => {
     const images = product.additional_images && product.additional_images.length > 0 
-      ? product.additional_images 
-      : product.primary_image_url 
-        ? [product.primary_image_url] 
-        : [];
+      ? product.additional_images.map(getImageUrl)
+    : product.primary_image_url 
+      ? [getImageUrl(product.primary_image_url)] 
+      : [];
     setGalleryImages(images);
     setGalleryProductName(product.name);
     setGalleryOpen(true);
