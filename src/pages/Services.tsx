@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -9,9 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import MobilePartSelector from '@/components/ui/MobilePartSelector';
-import SimpleImageSelector from '@/components/ui/SimpleImageSelector';
 import ImageManager from '@/components/admin/ImageManager';
-import { getImageUrl } from '@/utils/imageManager';
 import { Settings, Wrench, Cog, Package, Zap } from 'lucide-react';
 
 interface Product {
@@ -103,6 +100,30 @@ const Services = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [partRequestProduct, setPartRequestProduct] = useState<Product | null>(null);
   const [isMobilePartSelectorOpen, setIsMobilePartSelectorOpen] = useState(false);
+
+  // Enhanced Image URL Helper (handles spaces and special characters)
+  const getImageUrl = (path: string | null) => {
+    if (!path) return '/placeholder.svg';
+    
+    // Handle absolute URLs
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path;
+    }
+    
+    // Split path into directory and filename
+    const lastSlashIndex = path.lastIndexOf('/');
+    
+    // Handle paths without directories
+    if (lastSlashIndex === -1) {
+      return `/${encodeURIComponent(path)}`;
+    }
+    
+    const directory = path.substring(0, lastSlashIndex + 1);
+    const filename = path.substring(lastSlashIndex + 1);
+    
+    // Encode only the filename portion
+    return `${directory}${encodeURIComponent(filename)}`;
+  };
 
   // Fetch products
   const { data: products = [], isLoading: productsLoading } = useQuery({
@@ -643,7 +664,12 @@ const Services = () => {
           <div className="mt-6">
             {partRequestProduct && (
               <MobilePartSelector
-                product={partRequestProduct}
+                image={getImageUrl(partRequestProduct.primary_image_url)}
+                onSelect={(imageData: string, metadata: any) => {
+                  // Handle the selection
+                  console.log('Part selected:', { imageData, metadata });
+                }}
+                productName={partRequestProduct.name}
                 onClose={() => {
                   setIsMobilePartSelectorOpen(false);
                   setPartRequestProduct(null);
