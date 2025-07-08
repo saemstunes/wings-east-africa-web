@@ -7,7 +7,7 @@ interface WhatsAppButtonProps {
   className?: string;
 }
 
-const WhatsAppButton = ({ phoneNumber, message = "Hello! I'm interested in your services.", className = '' }: WhatsAppButtonProps) => {
+const WhatsAppButton = ({ phoneNumber, message = "Hello Wings! I'm interested in your services.", className = '' }: WhatsAppButtonProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
