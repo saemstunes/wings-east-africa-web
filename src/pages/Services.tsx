@@ -624,27 +624,14 @@ const getImageUrl = (path: string) => {
                 <a href="/contact" className="btn-primary">
                   Contact Our Team
                 </a>
-                <Button
+                <Button 
                   variant="outline"
-                  className="
-                  border-wings-navy 
-                  text-wings-navy 
-                  bg-white 
-                  dark:bg-transparent 
-                  dark:text-white 
-                  dark:border-white 
-                  hover:bg-wings-navy 
-                  hover:text-white 
-                  dark:hover:bg-white 
-                  dark:hover:text-wings-navy 
-                  transition-colors 
-                  duration-200 
-                  flex items-center
-                  "
+                  className="border-white text-wings-navy dark:text-white hover:bg-white hover:text-wings-navy dark:hover:bg-wings-navy 
+    dark:hover:text-white flex items-center"
                   onClick={() => {
                     window.open('https://wa.me/254719719991?text=I%20need%20a%20custom%20power%20solution.%20Please%20contact%20me.', '_blank');
                   }}
-                  >
+                >
   Contact Us
 </Button>
 
