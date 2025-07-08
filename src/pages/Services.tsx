@@ -220,10 +220,6 @@ const Services = () => {
                         {service.name}
                       </CardTitle>
                       <p className="text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
-                      {service.base_price && (
-                        <div className="flex items-center gap-2">
-                        </div>
-                      )}
                     </div>
                   </Card>
                 ))}
