@@ -92,10 +92,14 @@ const Services = () => {
     }
   }, [location]);
 
-  // Add this helper function
+  // Add this helper function at the top of your component
 const getImageUrl = (path: string) => {
+  if (!path) return 'https://via.placeholder.com/400x300?text=No+Image';
   if (path.startsWith('http')) return path;
-  return `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/storage/v1/object/public/product_images/${path}`;
+  
+  // Extract filename from path
+  const filename = path.split('/').pop();
+  return `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/product_catalog/${encodeURIComponent(filename)}`;
 };
 
   const openGallery = (product: any) => {
