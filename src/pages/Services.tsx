@@ -92,6 +92,12 @@ const Services = () => {
     }
   }, [location]);
 
+  // Add this helper function
+const getImageUrl = (path: string) => {
+  if (path.startsWith('http')) return path;
+  return `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/storage/v1/object/public/product_images/${path}`;
+};
+
   const openGallery = (product: any) => {
     const images = product.additional_images && product.additional_images.length > 0 
       ? product.additional_images 
@@ -333,7 +339,7 @@ const Services = () => {
                       >
                         <div className="relative h-48 overflow-hidden">
                           <img 
-                            src={product.primary_image_url || 'https://via.placeholder.com/400x300?text=No+Image'}
+                            src={getImageUrl(product.primary_image_url) || 'https://via.placeholder.com/400x300?text=No+Image'}
                             alt={product.name}
                             className="w-full h-full object-cover"
                           />
@@ -391,7 +397,7 @@ const Services = () => {
                         <div className="flex flex-col md:flex-row">
                           <div className="md:w-1/3 lg:w-1/4">
                             <img 
-                              src={product.primary_image_url || 'https://via.placeholder.com/400x300?text=No+Image'}
+                              src={getImageUrl(product.primary_image_url) || 'https://via.placeholder.com/400x300?text=No+Image'}
                               alt={product.name}
                               className="w-full h-64 md:h-full object-cover"
                             />
