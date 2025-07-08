@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -12,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { getImageUrl } from '@/utils/imageManager';
 
 const Services = () => {
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
@@ -22,19 +22,6 @@ const Services = () => {
   const [galleryProductName, setGalleryProductName] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
-
-  // Fixed Image URL Helper - handles relative paths without encoding
-  const getImageUrl = (path: string | null) => {
-    if (!path) return '/placeholder.svg';
-    
-    // Handle absolute URLs
-    if (path.startsWith('http://') || path.startsWith('https://')) {
-      return path;
-    }
-    
-    // For relative paths, ensure they start with / but don't encode the filename
-    return path.startsWith('/') ? path : `/${path}`;
-  };
 
   // Fetch products from database
   const { data: products = [], isLoading: productsLoading } = useQuery({
