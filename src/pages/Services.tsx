@@ -643,7 +643,12 @@ const Services = () => {
           <div className="mt-6">
             {partRequestProduct && (
               <MobilePartSelector
-                product={partRequestProduct}
+                image={getImageUrl(partRequestProduct.primary_image_url)}
+                onSelect={(imageData: string, metadata: any) => {
+                  // Handle the selection
+                  console.log('Part selected:', { imageData, metadata });
+                }}
+                productName={partRequestProduct.name}
                 onClose={() => {
                   setIsMobilePartSelectorOpen(false);
                   setPartRequestProduct(null);
