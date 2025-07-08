@@ -11,6 +11,14 @@ interface ImageGalleryProps {
   productName?: string;
 }
 
+// Add at the top of the file
+const getImageUrl = (path: string) => {
+  if (!path) return '';
+  if (path.startsWith('http')) return path;
+  
+  return `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/product_catalog/${encodeURIComponent(path)}`;
+};
+
 const ImageGallery = ({ images, initialIndex = 0, onClose, productName }: ImageGalleryProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isZoomed, setIsZoomed] = useState(false);
@@ -60,7 +68,7 @@ const ImageGallery = ({ images, initialIndex = 0, onClose, productName }: ImageG
   const handlePartRequest = (imageData: string, metadata: any) => {
     setImageSelectMode(false);
     
-    const encodedImage = encodeURIComponent(imageData);
+    const encodedImage = encodeURIComponent(getImageUrl(imageData));
     const encodedMetadata = encodeURIComponent(JSON.stringify({
       ...metadata,
       originalImage: images[currentIndex],
@@ -144,9 +152,10 @@ const ImageGallery = ({ images, initialIndex = 0, onClose, productName }: ImageG
           onClick={handleImageClick}
         >
           <AnimatePresence mode="wait">
+            // With this:
             <motion.img
               key={currentIndex}
-              src={images[currentIndex]}
+              src={getImageUrl(images[currentIndex])}
               alt={`Gallery image ${currentIndex + 1}`}
               className={`max-h-full max-w-full object-contain cursor-${isZoomed ? 'zoom-out' : 'zoom-in'}`}
               style={isZoomed ? imageTransformStyle : {}}
@@ -154,7 +163,7 @@ const ImageGallery = ({ images, initialIndex = 0, onClose, productName }: ImageG
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-            />
+              />
           </AnimatePresence>
         </div>
         
