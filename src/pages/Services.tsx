@@ -222,9 +222,6 @@ const Services = () => {
                       <p className="text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
                       {service.base_price && (
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline">
-                            From ${service.base_price} {service.price_type === 'hourly' ? '/hour' : ''}
-                          </Badge>
                           {service.mobile_service && (
                             <Badge variant="secondary">Mobile Service</Badge>
                           )}
