@@ -17,28 +17,28 @@ const products: Product[] = [
     id: 1,
     nameKey: 'industrialGenerators',
     categoryKey: 'powerGeneration',
-    image: 'https://i.imgur.com/oxF3LmG.png?q=80&w=1997&auto=format&fit=crop',
+    image: 'https://wzyrmzfgdtzaqmkhtbuk.supabase.co/storage/v1/object/public/product-showcase/product_showcase/oxF3LmG.png?q=80&w=1997&auto=format&fit=crop',
     link: '/services?category=generators'
   },
   {
     id: 2,
     nameKey: 'dieselEngines',
     categoryKey: 'engineCategory',
-    image: 'https://i.imgur.com/b82Q5RT.jpeg?q=80&w=2069&auto=format&fit=crop',
+    image: 'https://wzyrmzfgdtzaqmkhtbuk.supabase.co/storage/v1/object/public/product-showcase/product_showcase/b82Q5RT.jpeg?q=80&w=2069&auto=format&fit=crop',
     link: '/services?category=engines'
   },
   {
     id: 3,
     nameKey: 'spareParts',
     categoryKey: 'maintenanceCategory',
-    image: 'https://i.imgur.com/btN9EmF.png?q=80&w=2069&auto=format&fit=crop',
+    image: 'https://wzyrmzfgdtzaqmkhtbuk.supabase.co/storage/v1/object/public/product-showcase/product_showcase/btN9EmF.png?q=80&w=2069&auto=format&fit=crop',
     link: '/services?category=parts'
   },
   {
     id: 4,
     nameKey: 'installationServices',
     categoryKey: 'serviceCategory',
-    image: 'https://i.imgur.com/Qe7RsLM.png?q=80&w=1974&auto=format&fit=crop',
+    image: 'https://wzyrmzfgdtzaqmkhtbuk.supabase.co/storage/v1/object/public/product-showcase/product_showcase/Qe7RsLM.png?q=80&w=1974&auto=format&fit=crop',
     link: '/services?category=installation'
   }
 ];
