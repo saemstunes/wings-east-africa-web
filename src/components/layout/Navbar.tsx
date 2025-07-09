@@ -89,7 +89,7 @@ const Navbar = () => {
                 <img 
                   src="https://i.imgur.com/zCRXN6K.png" 
                   alt={companyName}
-                  className="h-full w-auto object-contain" 
+                  className="h-full w-auto object-contain rounded-md" 
                   onError={(e) => {
                     e.currentTarget.src = "https://i.imgur.com/zCRXN6K.png";
                   }}
