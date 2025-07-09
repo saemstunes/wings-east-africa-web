@@ -1,9 +1,8 @@
 
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
-
 
 interface Product {
   id: number;
@@ -12,9 +11,6 @@ interface Product {
   image: string;
   link: string;
 }
-
-const navigate = useNavigate();
-const MotionLink = motion(Link);
 
 const products: Product[] = [
   {
@@ -84,45 +80,38 @@ const ProductShowcase = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {products.map((product) => (
-  <MotionLink
-    key={product.id}
-    to={product.link}
-    className="relative group overflow-hidden rounded-lg sm:rounded-2xl shadow-lg block"
-    variants={item}
-    onMouseEnter={() => setActiveProduct(product.id)}
-    onMouseLeave={() => setActiveProduct(null)}
-    whileHover={{ y: -5, transition: { duration: 0.2 } }}
-    aria-label={`View ${t(product.nameKey)}`}
-  >
-    <div className="aspect-w-16 aspect-h-12 overflow-hidden">
-      <img 
-        src={product.image} 
-        alt={t(product.nameKey)} 
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-wings-navy/80 to-transparent opacity-80"></div>
-    </div>
-    
-    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform transition-transform duration-300 group-hover:-translate-y-2">
-      <span className="text-xs sm:text-sm text-wings-orange font-medium block mb-1">
-        {t(product.categoryKey)}
-      </span>
-      <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3">
-        {t(product.nameKey)}
-      </h3>
-      {/* Changed from Link to div */}
-      <div className="inline-flex items-center text-xs sm:text-sm font-medium text-white hover:text-wings-orange transition-colors">
-        {t('learnMore')}
-        <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
-             fill="none" stroke="currentColor" viewBox="0 0 24 24" 
-             xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </div>
-    </div>
-  </MotionLink>
-))}
+            <motion.div
+              key={product.id}
+              className="relative group overflow-hidden rounded-lg sm:rounded-2xl shadow-lg"
+              variants={item}
+              onMouseEnter={() => setActiveProduct(product.id)}
+              onMouseLeave={() => setActiveProduct(null)}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
+              <div className="aspect-w-16 aspect-h-12 overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={t(product.nameKey)} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-wings-navy/80 to-transparent opacity-80"></div>
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform transition-transform duration-300 group-hover:-translate-y-2">
+                <span className="text-xs sm:text-sm text-wings-orange font-medium block mb-1">{t(product.categoryKey)}</span>
+                <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3">{t(product.nameKey)}</h3>
+                <Link 
+                  to={product.link} 
+                  className="inline-flex items-center text-xs sm:text-sm font-medium text-white hover:text-wings-orange transition-colors"
+                >
+                   {t('learnMore')}
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
         
         <div className="text-center mt-8 sm:mt-10">
