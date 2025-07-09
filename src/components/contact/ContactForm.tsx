@@ -35,7 +35,7 @@ const ContactForm = ({ requestImage, requestMetadata, onClearRequest }: ContactF
     email: '',
     phone: '',
     subject: requestMetadata ? 'Parts Request' : '',
-    message: requestMetadata ? `I'm interested in getting a quote for a part from ${requestMetadata.productName || 'your catalog'}.` : '',
+    message: requestMetadata ? `I'm interested in getting a quote for the highlighted part from ${requestMetadata.productName || 'your catalog'}.` : '',
   });
   const [loading, setLoading] = useState(false);
 
