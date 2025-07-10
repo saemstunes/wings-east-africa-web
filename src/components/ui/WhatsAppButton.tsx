@@ -28,7 +28,7 @@ const WhatsAppButton = ({ phoneNumber, message = "Hello Wings! I'm interested in
   return (
     <button
       onClick={handleClick}
-      className={`fixed bottom-16 sm:bottom-4 right-4 sm:right-6 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg z-50 flex items-center justify-center transition-all duration-300 ${
+      className={`fixed bottom-20 sm:bottom-8 right-4 sm:right-6 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg z-50 flex items-center justify-center transition-all duration-300 ${
         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       } ${className}`}
       style={{ width: '50px', height: '50px', padding: '1px' }}
