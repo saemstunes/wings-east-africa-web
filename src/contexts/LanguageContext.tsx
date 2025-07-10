@@ -19,7 +19,7 @@ export const translationData = {
     aboutPage: 'About Us',
     servicesPage: 'Services & Products',
     contactPage: 'Contact',
-    makeInquiry: 'Make an Inquiry',
+    makeInquiry: 'Call',
     requestQuoteNav: 'Request a Quote',
     getInTouch: 'Get in Touch',
     companyName: 'Wings Engineering Services Limited',
@@ -77,10 +77,10 @@ export const translationData = {
   sw: {
     // Navigation
     home: 'Nyumbani',
-    aboutPage: 'Kuhusu Sisi',
+    aboutPage: 'Kutuhusu',
     servicesPage: 'Huduma na Bidhaa',
     contactPage: 'Wasiliana',
-    makeInquiry: 'Fanya Uchunguzi',
+    makeInquiry: 'Piga',
     requestQuoteNav: 'Omba Nukuu ya Bei',
     getInTouch: 'Wasiliana Nasi',
     companyName: 'Wings Engineering Services Limited',
