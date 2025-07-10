@@ -20,7 +20,7 @@ const About = () => {
     { id: 3, name: 'Lister Petter', logo: 'https://i.imgur.com/5HOYAVO.png' },
     { id: 4, name: 'Kenya Power', logo: 'https://i.imgur.com/iGrVCMv.png' },
     { id: 5, name: 'Total Energies', logo: 'https://i.imgur.com/5KzthvD.png' },
-    { id: 6, name: 'KTDA', logo: 'https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/463657520_2835696023256525_2407981092105020019_n.jpg?stp=dst-jpg_p552x414_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=RA2FWthECPEQ7kNvwFqUczJ&_nc_oc=AdnNPW_VfbQcmdodsZEzUQ7ckpKtKSkZtiOW0TkdsMhv2j-O9PL3Q9Vm4gMVkoSmwMQ&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=IM6-dN5j8ZvkfMyuFkpLIQ&oh=00_AfLhRkL8nQZ6mf-s0A_xh8YxkMHscFowrce0si3phuFaeg&oe=68270059' },
+    { id: 6, name: 'KTDA', logo: 'https://i.imgur.com/GTevIPM.png' },
   ];
 
   return (
