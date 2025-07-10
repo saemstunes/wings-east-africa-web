@@ -32,7 +32,7 @@ const FloatingInquiryTab = ({ className = '', delay = 1000 }: FloatingInquiryTab
         <span className="font-medium text-sm sm:text-base">{t('makeInquiry')}</span>
       </div>
       <Link 
-        to="/contact" 
+        to="/about" 
         className="ml-0 sm:ml-4 bg-white text-wings-navy hover:bg-gray-100 px-3 sm:px-4 py-1.5 rounded-md transition-colors font-medium text-sm whitespace-nowrap"
       >
         {t('getInTouch')}
