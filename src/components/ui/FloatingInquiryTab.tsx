@@ -33,7 +33,7 @@ const FloatingInquiryTab = ({ className = '', delay = 1000 }: FloatingInquiryTab
     {t('makeInquiry')}{" "}
     <a
       href="tel:+254716052776"
-      className="underline hover:text-white hover:bg-wings-navy px-1 rounded transition-colors"
+      className="hover:text-white hover:bg-wings-orange/10 px-1 rounded transition-colors"
     >
       0716 052 776
     </a>
