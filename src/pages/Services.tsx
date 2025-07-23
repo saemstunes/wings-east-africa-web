@@ -1,12 +1,12 @@
 
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom'; // Added useNavigate
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import WhatsAppButton from '../components/ui/WhatsAppButton';
-import { LayoutList, LayoutGrid, Filter, Search } from 'lucide-react';
+import { LayoutList, LayoutGrid, Search } from 'lucide-react'; // Removed unused Filter import
 import ImageGallery from '../components/ui/ImageGallery';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -22,32 +22,52 @@ const Services = () => {
   const [galleryProductName, setGalleryProductName] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
+  const navigate = useNavigate(); // Added for URL manipulation
 
-  export default function ServicesPage() {
-  const location = useLocation();
-
+  // Fixed hook placement - only one useEffect for hash handling
   useEffect(() => {
+    // Handle category filter from query params
+    const params = new URLSearchParams(location.search);
+    const category = params.get('category');
+    
+    if (category && ['generators', 'engines', 'parts'].includes(category)) {
+      setCategoryFilter(category);
+      
+      // Set hash if not already present
+      if (!location.hash) {
+        navigate(`${location.pathname}${location.search}#products-section`, { replace: true });
+      }
+    }
+
+    // Handle hash-based scrolling
     if (location.hash) {
-      // Wait for the DOM + any transition/layout load
+      let targetHash = location.hash;
+      
+      // Map old #installation to new section
+      if (location.hash === '#installation') {
+        targetHash = '#services-section';
+      }
+
       const scrollToHash = () => {
-        const el = document.querySelector(location.hash);
+        const el = document.querySelector(targetHash);
         if (el) {
+          // Add smooth scrolling
           el.scrollIntoView({ behavior: 'smooth' });
         }
       };
 
-      // Retry a few times in case section is not immediately available
+      // Retry mechanism for dynamic content
       let attempts = 0;
       const interval = setInterval(() => {
         attempts++;
-        const el = document.querySelector(location.hash);
+        const el = document.querySelector(targetHash);
         if (el || attempts > 10) {
           clearInterval(interval);
           if (el) scrollToHash();
         }
-      }, 100); // adjust interval delay as needed
+      }, 100);
     }
-  }, [location]);
+  }, [location, navigate]); // Added navigate dependency
 
   // Fetch products from database
   const { data: products = [], isLoading: productsLoading } = useQuery({
