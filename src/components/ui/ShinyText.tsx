@@ -8,7 +8,7 @@ const ShinyText = ({
   speed = 5, 
   className = '',
   shineColor = 'rgba(255, 255, 255, 0.8)',
-  hoverEffect = true,
+  stopOnHover = true,  // Renamed for clarity
   size = 'inherit',
   weight = 'inherit'
 }) => {
@@ -22,7 +22,10 @@ const ShinyText = ({
     );
   }, []);
 
-  const shouldShine = !disabled && !reducedMotion && (hoverEffect ? isHovered : true);
+  // Effect is shown by default, hidden when hovered if stopOnHover is true
+  const shouldShine = !disabled && 
+                     !reducedMotion && 
+                     (!stopOnHover || !isHovered);
   
   return (
     <span 
