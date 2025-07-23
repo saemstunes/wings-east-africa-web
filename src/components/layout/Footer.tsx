@@ -114,9 +114,12 @@ const Footer = () => {
                   text="+254 716 052 776"
                   disabled={false}
                   speed={3}
-                  className="custom-class text-gray-300 hover:text-white"
-                  />
-              </li>
+                  className="text-gray-300 hover:text-white transition-colors"
+                  shineColor="rgba(255, 165, 0, 0.8)"  // Orange tint to match brand
+                  hoverEffect={true}
+                  size="1rem"
+               />
+          </li>
               <li className="flex items-center">
                 <Mail className="mr-3 text-wings-orange" size={18} />
                 <a href="mailto:sales@wingsengineeringserviceslimited.com?cc=info@wingsengineeringserviceslimited.com&subject=RE:&body=Dear%20sir/madam,%0A%0AI%20am%20writing%20to%20you%20to..." className="text-gray-300 hover:text-white">
