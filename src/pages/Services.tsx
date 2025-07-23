@@ -23,6 +23,21 @@ const Services = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
 
+  export default function ServicesPage() {
+  const { hash } = useLocation();
+
+    useEffect(() => {
+    if (hash) {
+      // Wait for DOM to load if needed
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100); // optional: give time for page/section to render
+    }
+  }, [hash]);
+
   // Fetch products from database
   const { data: products = [], isLoading: productsLoading } = useQuery({
     queryKey: ['products', categoryFilter, searchTerm],
