@@ -41,11 +41,11 @@ const FloatingInquiryTab = ({ className = '', delay = 1000 }: FloatingInquiryTab
               disabled={false}
               speed={3}
               className="hover:text-white"
-              shineColor="rgba(255, 255, 255, 0.7)"
+              shineColor="rgba(20, 51, 84, 0.7)" // text-wings-navy with 70% opacity
               stopOnHover={true}
               size="inherit"
               weight="inherit"
-            />
+              />
           </a>
   </span>
 </div>
