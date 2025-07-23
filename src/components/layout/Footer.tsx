@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Check } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import ShinyText from './ShinyText';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -109,9 +110,12 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="mr-3 text-wings-orange" size={18} />
-                <a href="tel:+254719719991" className="text-gray-300 hover:text-white">
-                  +254 716 052 776
-                </a>
+                <ShinyText
+                  text="+254 716 052 776"
+                  disabled={false}
+                  speed={3}
+                  className="custom-class text-gray-300 hover:text-white"
+                  />
               </li>
               <li className="flex items-center">
                 <Mail className="mr-3 text-wings-orange" size={18} />
