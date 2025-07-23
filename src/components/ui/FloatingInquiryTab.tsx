@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import ShinyText from '@/components/ui/ShinyText';
 
 interface FloatingInquiryTabProps {
   className?: string;
@@ -32,11 +33,20 @@ const FloatingInquiryTab = ({ className = '', delay = 1000 }: FloatingInquiryTab
   <span className="font-medium text-sm sm:text-base">
     {t('makeInquiry')}{" "}
     <a
-      href="tel:+254716052776"
-      className="hover:text-white hover:bg-wings-orange/10 px-1 rounded transition-colors"
-    >
-      0716 052 776
-    </a>
+            href="tel:+254716052776"
+            className="px-1 rounded transition-colors"
+          >
+            <ShinyText
+              text="0716 052 776"
+              disabled={false}
+              speed={3}
+              className="hover:text-white"
+              shineColor="rgba(255, 255, 255, 0.7)"
+              stopOnHover={true}
+              size="inherit"
+              weight="inherit"
+            />
+          </a>
   </span>
 </div>
 
