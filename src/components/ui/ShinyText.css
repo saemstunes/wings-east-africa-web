@@ -1,20 +1,18 @@
 /* components/ui/ShinyText.css */
-.shiny-text-wrapper {
+.shiny-text-container {
   position: relative;
   display: inline-block;
   font-size: var(--text-size, inherit);
   font-weight: var(--text-weight, inherit);
-  overflow: hidden;
-}
-
-.shiny-text {
-  position: relative;
-  display: inline-block;
   color: currentColor;
 }
 
-.shiny-text-wrapper:not(.disabled) .shiny-text::before {
-  content: '';
+.static-text {
+  position: relative;
+  z-index: 1;
+}
+
+.shiny-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -32,6 +30,7 @@
   color: transparent;
   animation: shine var(--shine-speed, 5s) linear infinite;
   z-index: 2;
+  pointer-events: none;
 }
 
 @keyframes shine {
@@ -43,13 +42,8 @@
   }
 }
 
-/* Stop animation on hover */
-.shiny-text-wrapper:not(.disabled):hover .shiny-text::before {
-  animation: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .shiny-text::before {
+  .shiny-overlay {
     animation: none !important;
   }
 }

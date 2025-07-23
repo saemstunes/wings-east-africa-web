@@ -109,15 +109,16 @@ const Footer = () => {
                   </a>
               </li>
               <li className="flex items-center">
-            <Phone className="mr-3 text-wings-orange" size={18} />
-            <ShinyText
-              text="+254 716 052 776"
-              disabled={false}
-              speed={3}
-              className="text-gray-300 hover:text-white transition-colors"
-              shineColor="rgba(255, 165, 0, 0.6)"  // Orange tint to match brand
-              size="1rem"
-            />
+                <Phone className="mr-3 text-wings-orange" size={18} />
+                <ShinyText
+                  text="+254 716 052 776"
+                  disabled={false}
+                  speed={3}
+                  className="text-gray-300 hover:text-white transition-colors"
+                  shineColor="rgba(255, 165, 0, 0.8)"  // Orange tint to match brand
+                  hoverEffect={true}
+                  size="1rem"
+               />
           </li>
               <li className="flex items-center">
                 <Mail className="mr-3 text-wings-orange" size={18} />
