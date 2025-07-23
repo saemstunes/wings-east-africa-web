@@ -13,7 +13,7 @@ const ShinyText = ({
 }) => {
   return (
     <span 
-      className={`shiny-text-container ${disabled ? 'disabled' : ''} ${className}`}
+      className={`shiny-text-wrapper ${disabled ? 'disabled' : ''} ${className}`}
       style={{
         '--shine-speed': `${speed}s`,
         '--shine-color': shineColor,
