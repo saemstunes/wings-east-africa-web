@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Check } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import ShinyText from './ShinyText';
+import ShinyText from '@/components/ui/ShinyText';
 
 const Footer = () => {
   const { t } = useLanguage();
