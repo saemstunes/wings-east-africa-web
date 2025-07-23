@@ -88,14 +88,16 @@ const ProductShowcase = () => {
               onMouseLeave={() => setActiveProduct(null)}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
-              <div className="aspect-w-16 aspect-h-12 overflow-hidden">
-                <img 
-                  src={product.image} 
-                  alt={t(product.nameKey)} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-wings-navy/80 to-transparent opacity-80"></div>
-              </div>
+              <Link to={product.link} className="block h-full">
+                <div className="aspect-w-16 aspect-h-12 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={t(product.nameKey)} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  <div className="absolute inset-0 bg-gradient-to-t from-wings-navy/80 to-transparent opacity-80"></div>
+                </div>
+              </Link>
               
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform transition-transform duration-300 group-hover:-translate-y-2">
                 <span className="text-xs sm:text-sm text-wings-orange font-medium block mb-1">{t(product.categoryKey)}</span>
