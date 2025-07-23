@@ -118,7 +118,7 @@ const ProductShowcase = () => {
         
         <div className="text-center mt-8 sm:mt-10">
           <Link 
-            to="/services" 
+            to="/services#products-section" 
             className="btn-secondary inline-flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
           >
             {t('viewAll')}
