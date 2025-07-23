@@ -1,16 +1,36 @@
-.shiny-text {
-  color: #b5b5b5a4; /* Adjust this color to change intensity/style */
+/* components/ui/ShinyText.css */
+.shiny-text-container {
+  position: relative;
+  display: inline-block;
+  font-size: var(--text-size, inherit);
+  font-weight: var(--text-weight, inherit);
+  color: currentColor;
+}
+
+.static-text {
+  position: relative;
+  z-index: 1;
+}
+
+.shiny-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 60%
+    transparent 40%,
+    var(--shine-color, rgba(255, 255, 255, 0.8)) 50%,
+    transparent 60%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  display: inline-block;
-  animation: shine 5s linear infinite;
+  color: transparent;
+  animation: shine var(--shine-speed, 5s) linear infinite;
+  z-index: 2;
+  pointer-events: none;
 }
 
 @keyframes shine {
@@ -22,6 +42,8 @@
   }
 }
 
-.shiny-text.disabled {
-  animation: none;
+@media (prefers-reduced-motion: reduce) {
+  .shiny-overlay {
+    animation: none !important;
+  }
 }
