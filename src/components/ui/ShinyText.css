@@ -4,15 +4,17 @@
   display: inline-block;
   font-size: var(--text-size, inherit);
   font-weight: var(--text-weight, inherit);
+  overflow: hidden;
+}
+
+.shiny-text {
+  position: relative;
+  display: inline-block;
   color: currentColor;
 }
 
-.static-text {
-  position: relative;
-  z-index: 1;
-}
-
-.shiny-overlay {
+.shiny-text-container:not(.disabled) .shiny-text::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -27,10 +29,7 @@
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
   animation: shine var(--shine-speed, 5s) linear infinite;
-  z-index: 2;
-  pointer-events: none;
 }
 
 @keyframes shine {
@@ -42,8 +41,13 @@
   }
 }
 
+/* Stop animation on hover */
+.shiny-text-container:not(.disabled):hover .shiny-text::after {
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .shiny-overlay {
+  .shiny-text::after {
     animation: none !important;
   }
 }
