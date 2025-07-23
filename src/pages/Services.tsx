@@ -24,19 +24,30 @@ const Services = () => {
   const location = useLocation();
 
   export default function ServicesPage() {
-  const { hash } = useLocation();
+  const location = useLocation();
 
-    useEffect(() => {
-    if (hash) {
-      // Wait for DOM to load if needed
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    if (location.hash) {
+      // Wait for the DOM + any transition/layout load
+      const scrollToHash = () => {
+        const el = document.querySelector(location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100); // optional: give time for page/section to render
+      };
+
+      // Retry a few times in case section is not immediately available
+      let attempts = 0;
+      const interval = setInterval(() => {
+        attempts++;
+        const el = document.querySelector(location.hash);
+        if (el || attempts > 10) {
+          clearInterval(interval);
+          if (el) scrollToHash();
+        }
+      }, 100); // adjust interval delay as needed
     }
-  }, [hash]);
+  }, [location]);
 
   // Fetch products from database
   const { data: products = [], isLoading: productsLoading } = useQuery({
