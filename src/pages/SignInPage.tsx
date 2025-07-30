@@ -52,7 +52,7 @@ const SignInPage = () => {
           title: "Welcome back!",
           description: "You have been successfully signed in.",
         });
-        navigate('/dashboard');
+        navigate('/admin');
       } else {
         // Handle additional requirements like 2FA
         console.log(result);
@@ -75,9 +75,9 @@ const SignInPage = () => {
           <div className="mx-auto w-16 h-16 bg-wings-orange/10 rounded-full flex items-center justify-center mb-6">
             <ShieldCheck className="h-8 w-8 text-wings-orange" />
           </div>
-          <CardTitle className="text-2xl text-wings-navy mb-2">Welcome Back</CardTitle>
+          <CardTitle className="text-2xl text-wings-navy mb-2">Welcome Back, Bwana CEO</CardTitle>
           <p className="text-sm text-gray-600">
-            Sign in to access your account
+            Access your dashboard here
           </p>
         </CardHeader>
         
