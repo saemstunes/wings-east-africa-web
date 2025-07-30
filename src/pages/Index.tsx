@@ -114,8 +114,8 @@ const Index = () => {
                 {/* Vision Card */}
         <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-blue transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div className="flex items-start mb-4">
-            <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full mr-4">
-              <Eye className="h-6 w-6 text-wings-blue dark:text-blue-400" />
+            <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4">
+              <Eye className="h-6 w-6 text-wings-orange dark:text-orange-300" />
             </div>
             <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Vision</h3>
           </div>
@@ -128,8 +128,8 @@ const Index = () => {
         {/* Mission Card */}
         <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div className="flex items-start mb-4">
-            <div className="bg-amber-100 dark:bg-amber-900/50 p-3 rounded-full mr-4">
-              <Flag className="h-6 w-6 text-wings-gold dark:text-amber-400" />
+            <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4">
+              <Flag className="h-6 w-6 text-wings-orange dark:text-orange-300" />
             </div>
             <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Mission</h3>
           </div>
