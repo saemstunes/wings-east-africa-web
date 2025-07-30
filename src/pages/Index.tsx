@@ -59,37 +59,37 @@ const Index = () => {
     <>
       <SplashScreen />
       <div ref={navbarRef}>
-        <Navbar />
-        {/* Secret button overlay */}
-        <AnimatePresence>
-          {showSecretButton && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.5 }}
-              className="fixed top-4 right-20 z-50"
-            >
-              <SignedOut>
-                <Link 
-                  to="/sign-in" 
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-wings-orange/20 hover:bg-wings-orange/30 transition-colors"
-                  title="Secret Access"
-                >
-                  <Lock className="h-5 w-5 text-wings-orange" />
-                </Link>
-              </SignedOut>
-              <SignedIn>
-                <Link 
-                  to="/dashboard" 
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500/20 hover:bg-green-500/30 transition-colors"
-                  title="Go to Dashboard"
-                >
-                  <LockOpen className="h-5 w-5 text-green-500" />
-                </Link>
-              </SignedIn>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <Navbar>
+          {/* Secret button that appears next to theme toggle */}
+          <AnimatePresence>
+            {showSecretButton && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+              >
+                <SignedOut>
+                  <Link 
+                    to="/sign-in" 
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-wings-orange/20 hover:bg-wings-orange/30 transition-colors"
+                    title="Secret Access"
+                  >
+                    <Lock className="h-5 w-5 text-wings-orange" />
+                  </Link>
+                </SignedOut>
+                <SignedIn>
+                  <Link 
+                    to="/dashboard" 
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500/20 hover:bg-green-500/30 transition-colors"
+                    title="Go to Dashboard"
+                  >
+                    <LockOpen className="h-5 w-5 text-green-500" />
+                  </Link>
+                </SignedIn>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </Navbar>
       </div>
       
       <main>
