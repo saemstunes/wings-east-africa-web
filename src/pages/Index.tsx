@@ -99,7 +99,7 @@ const Index = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={5}>
-          <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+          <section className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <div className="container-custom">
               {/* Section Header */}
               <div className="text-center mb-16">
@@ -114,7 +114,7 @@ const Index = () => {
                 {/* Vision Card */}
                 <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-blue transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div className="flex items-start mb-4">
-                    <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full mr-4">
+                    <div className="bg-wings-navy-100 dark:bg-wings-navy-900/50 p-3 rounded-full mr-4">
                       <Eye className="h-6 w-6 text-wings-blue dark:text-blue-400" />
                     </div>
                     <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Vision</h3>
@@ -128,8 +128,8 @@ const Index = () => {
                 {/* Mission Card */}
                 <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div className="flex items-start mb-4">
-                    <div className="bg-amber-100 dark:bg-amber-900/50 p-3 rounded-full mr-4">
-                      <Flag className="h-6 w-6 text-wings-gold dark:text-amber-400" />
+                    <div className="bg-wings-navy-100 dark:bg-wings-navy-900/50 p-3 rounded-full mr-4">
+                      <Flag className="h-6 w-6 text-wings-blue dark:text-blue-400" />
                     </div>
                     <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Mission</h3>
                   </div>
