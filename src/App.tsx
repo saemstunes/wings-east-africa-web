@@ -12,6 +12,10 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 import SecureAdminAuth from "./pages/SecureAdminAuth";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+import DashboardPage from "./pages/DashboardPage";
 import { ThemeProvider } from "./hooks/use-theme";
 import FloatingInquiryTab from "./components/ui/FloatingInquiryTab";
 import ScrollToTop from "./components/ui/ScrollToTop";
@@ -37,6 +41,12 @@ const App = () => (
                 <Route path="/about-enhanced" element={<AboutEnhanced />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
+                
+                {/* Clerk Auth Routes */}
+                <Route path="/sign-in" element={<SignInPage />} />
+                <Route path="/sign-up" element={<SignUpPage />} />
+                <Route path="/reset-password" element={<ResetPasswordPage />} />
+                <Route path="/dashboard" element={<DashboardPage />} />
                 
                 {/* Admin Routes */}
                 <Route path="/admin-auth" element={<SecureAdminAuth />} />

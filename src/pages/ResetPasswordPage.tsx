@@ -1,34 +1,61 @@
 import React, { useState } from 'react';
-import { useClerk } from '@clerk/clerk-react';
+import { useAuth, useSignIn } from '@clerk/clerk-react';
+import { useNavigate, Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Mail, ArrowLeft, ShieldCheck } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const ResetPasswordPage = () => {
+  const { isSignedIn } = useAuth();
+  const { isLoaded, signIn } = useSignIn();
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const { client } = useClerk();
+  
+  // Redirect if already signed in
+  React.useEffect(() => {
+    if (isSignedIn) {
+      navigate('/dashboard');
+    }
+  }, [isSignedIn, navigate]);
+
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-wings-navy to-gray-900">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-wings-orange"></div>
+      </div>
+    );
+  }
 
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isLoaded) return;
+
     setLoading(true);
-    setError('');
 
     try {
-      await client.createEmail({
-        emailAddressId: 'email_address_id', // Clerk will handle this
-        fromEmailName: 'support',
-        body: "We received a request to reset your access code...",
-        subject: "Reset your access code",
+      await signIn.create({
+        strategy: 'reset_password_email_code',
+        identifier: email,
       });
       
       setSuccess(true);
-    } catch (err) {
-      setError('Failed to send reset instructions. Please try again.');
+      toast({
+        title: "Reset email sent",
+        description: "Check your email for password reset instructions.",
+      });
+    } catch (err: any) {
+      toast({
+        title: "Reset failed",
+        description: err.errors?.[0]?.message || "Failed to send reset instructions. Please try again.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -50,7 +77,7 @@ const ResetPasswordPage = () => {
           
           <CardContent className="text-center">
             <Button 
-              onClick={() => window.location.href = '/'}
+              onClick={() => navigate('/sign-in')}
               className="mt-4 bg-wings-navy hover:bg-wings-navy/90"
             >
               Return to Sign In
@@ -95,9 +122,6 @@ const ResetPasswordPage = () => {
               </div>
             </div>
 
-            {error && (
-              <div className="text-red-500 text-sm">{error}</div>
-            )}
 
             <Button 
               type="submit" 
@@ -109,13 +133,22 @@ const ResetPasswordPage = () => {
           </form>
 
           <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600 mb-4">
+              Remember your password?{' '}
+              <Link 
+                to="/sign-in" 
+                className="text-wings-orange hover:text-wings-orange/80 font-medium"
+              >
+                Sign in
+              </Link>
+            </p>
             <Button 
               variant="ghost" 
-              onClick={() => window.history.back()}
+              onClick={() => navigate('/')}
               className="text-sm text-gray-600"
             >
               <ArrowLeft className="h-4 w-4 mr-1" />
-              Back to Sign In
+              Back to Home
             </Button>
           </div>
         </CardContent>
