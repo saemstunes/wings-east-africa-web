@@ -291,7 +291,7 @@ const Index = () => {
         
         {/* Secret authentication buttons (hidden until activated) */}
         {secretUnlocked && (
-          <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end space-y-3">
+          <div className="fixed bottom-16 right-8 z-50 flex flex-col items-end space-y-3">
             <SignedOut>
               <AnimatePresence>
                 <motion.div
@@ -327,7 +327,7 @@ const Index = () => {
                 >
                   <Link 
                     to="/admin" 
-                    className="bg-green-600 text-white py-3 px-6 -mt-2 rounded-full shadow-lg hover:bg-green-700 transition-colors flex items-center"
+                    className="bg-green-600 text-white py-3 px-6 rounded-full shadow-lg hover:bg-green-700 transition-colors flex items-center"
                   >
                     <LockOpen className="h-5 w-5 mr-2" />
                     <span>Go to Dashboard</span>
