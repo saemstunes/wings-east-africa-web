@@ -5,10 +5,12 @@ import App from './App';
 import { ClerkProvider } from '@clerk/clerk-react';
 import './index.css';
 
-const PUBLISHABLE_KEY = "pk_test_b25lLW1hY2tlcmVsLTM3LmNsZXJrLmFjY291bnRzLmRldiQ";
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-    <App />
-  </ClerkProvider>
+  <React.StrictMode>
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+      <App />
+    </ClerkProvider>
+  </React.StrictMode>
 );
