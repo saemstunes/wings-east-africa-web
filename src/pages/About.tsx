@@ -61,6 +61,15 @@ const About = () => {
                 <p className="text-gray-700 dark:text-white">
                   As we continue to grow, our core values of safety, quality, and reliability remain at the heart of everything we do. We're proud to power East Africa's development through our comprehensive engineering solutions.
                 </p>
+                <h3 className="heading-md text-wings-navy dark:text-white mt-8 mb-4">Vision Statement</h3>
+                <p className="text-gray-700 dark:text-white mb-4">
+                  To be the leading provider of dependable engineering solutions across East Africa, empowering industries and institutions through innovative power technologies and unwavering service excellence.
+                </p>
+                
+                <h3 className="heading-md text-wings-navy dark:text-white mt-8 mb-4">Mission Statement</h3>
+                <p className="text-gray-700 dark:text-white">
+                  At Wings Engineering Services Limited, our mission is to deliver high-quality engines, generators, and power systems with precision and reliability. Supported by a team of certified professionals, we ensure seamless operations for our clients through expert installation, proactive maintenance, and 24/7 technical support—driven by a commitment to engineering excellence and regional impact.
+                </p>
               </div>
               <div>
                 <img 
