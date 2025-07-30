@@ -326,8 +326,8 @@ const Index = () => {
                   exit={{ opacity: 0, y: 50 }}
                 >
                   <Link 
-                    to="/dashboard" 
-                    className="bg-green-600 text-white py-3 px-6 rounded-full shadow-lg hover:bg-green-700 transition-colors flex items-center"
+                    to="/admin" 
+                    className="bg-green-600 text-white py-3 px-6 -mt-2 rounded-full shadow-lg hover:bg-green-700 transition-colors flex items-center"
                   >
                     <LockOpen className="h-5 w-5 mr-2" />
                     <span>Go to Dashboard</span>
