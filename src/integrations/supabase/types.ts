@@ -14,21 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
-      admin_credentials: {
+      admin_users: {
         Row: {
-          id: number
-          password_hash: string
-          username: string
+          backup_codes: string[] | null
+          created_at: string | null
+          id: string
+          last_login_at: string | null
+          locked_until: string | null
+          login_attempts: number | null
+          role: string
+          two_factor_enabled: boolean | null
+          two_factor_secret: string | null
+          updated_at: string | null
+          user_id: string
         }
         Insert: {
-          id?: never
-          password_hash: string
-          username: string
+          backup_codes?: string[] | null
+          created_at?: string | null
+          id?: string
+          last_login_at?: string | null
+          locked_until?: string | null
+          login_attempts?: number | null
+          role?: string
+          two_factor_enabled?: boolean | null
+          two_factor_secret?: string | null
+          updated_at?: string | null
+          user_id: string
         }
         Update: {
-          id?: never
-          password_hash?: string
-          username?: string
+          backup_codes?: string[] | null
+          created_at?: string | null
+          id?: string
+          last_login_at?: string | null
+          locked_until?: string | null
+          login_attempts?: number | null
+          role?: string
+          two_factor_enabled?: boolean | null
+          two_factor_secret?: string | null
+          updated_at?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -608,6 +632,10 @@ export type Database = {
       generate_quote_number: {
         Args: Record<PropertyKey, never>
         Returns: string
+      }
+      is_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
       }
     }
     Enums: {
