@@ -113,7 +113,7 @@ const Index = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
                 {/* Vision Card */}
         <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-blue transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <div className="flex items-start mb-4">
+          <div className="flex items-start my-2">
             <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4">
               <Eye className="h-6 w-6 text-wings-orange dark:text-orange-300" />
             </div>
@@ -127,7 +127,7 @@ const Index = () => {
 
         {/* Mission Card */}
         <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <div className="flex items-start mb-4">
+          <div className="flex items-start my-2">
             <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4">
               <Flag className="h-6 w-6 text-wings-orange dark:text-orange-300" />
             </div>
