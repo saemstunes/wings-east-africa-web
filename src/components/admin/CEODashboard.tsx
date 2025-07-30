@@ -19,11 +19,11 @@ import {
   Eye
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/contexts/SecureAuthContext';
 import LiveNotifications from './LiveNotifications';
 
 const CEODashboard = () => {
-  const { logout } = useAuth();
+  const { signOut } = useAuth();
 
   // Fetch comprehensive dashboard data
   const { data: dashboardData, isLoading } = useQuery({
@@ -126,7 +126,7 @@ const CEODashboard = () => {
               <Button 
                 variant="outline" 
                 size="sm" 
-                onClick={logout}
+                onClick={signOut}
                 className="border-white text-white hover:bg-white hover:text-wings-navy"
               >
                 <LogOut className="w-4 h-4 mr-2" />

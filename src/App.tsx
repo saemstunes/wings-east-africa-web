@@ -11,10 +11,10 @@ import AboutEnhanced from "./pages/AboutEnhanced";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
-import AdminAuth from "./pages/AdminAuth";
+import SecureAdminAuth from "./pages/SecureAdminAuth";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./hooks/use-theme";
-import { AuthProvider } from "./contexts/AuthContext";
+import { SecureAuthProvider } from "./contexts/SecureAuthContext";
 import FloatingInquiryTab from "./components/ui/FloatingInquiryTab";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -25,7 +25,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="light" storageKey="wings-theme">
       <LanguageProvider>
-        <AuthProvider>
+        <SecureAuthProvider>
           <TooltipProvider>
             <Toaster />
             <Sonner />
@@ -37,17 +37,17 @@ const App = () => (
                 <Route path="/about-enhanced" element={<AboutEnhanced />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
-                {/* Hidden CEO access routes - not in public navigation */}
-                <Route path="/admin" element={<AdminAuth />} />
-                <Route path="/executive" element={<AdminAuth />} />
-                <Route path="/dashboard" element={<AdminAuth />} />
+                {/* Secure admin routes */}
+                <Route path="/admin" element={<SecureAdminAuth />} />
+                <Route path="/executive" element={<SecureAdminAuth />} />
+                <Route path="/dashboard" element={<SecureAdminAuth />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <FloatingInquiryTab />
             </BrowserRouter>
           </TooltipProvider>
-        </AuthProvider>
+        </SecureAuthProvider>
       </LanguageProvider>
     </ThemeProvider>
   </QueryClientProvider>

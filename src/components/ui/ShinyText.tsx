@@ -30,12 +30,14 @@ const ShinyText = ({
   return (
     <span 
       className={`shiny-text-container ${className}`}
-      style={{
-        '--shine-speed': `${speed}s`,
-        '--shine-color': shineColor,
-        '--text-size': size,
-        '--text-weight': weight,
-      }}
+      style={
+        {
+          '--shine-speed': `${speed}s`,
+          '--shine-color': shineColor,
+          '--text-size': size,
+          '--text-weight': weight,
+        } as React.CSSProperties
+      }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       aria-disabled={disabled}
