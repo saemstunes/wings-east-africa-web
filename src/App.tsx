@@ -37,8 +37,8 @@ const App = () => (
                 <Route path="/about-enhanced" element={<AboutEnhanced />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/admin" element={<Admin />} />
                 {/* Hidden CEO access routes - not in public navigation */}
+                <Route path="/admin" element={<AdminAuth />} />
                 <Route path="/executive" element={<AdminAuth />} />
                 <Route path="/dashboard" element={<AdminAuth />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
