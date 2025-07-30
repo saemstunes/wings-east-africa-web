@@ -25,16 +25,17 @@ const Footer = () => {
 
   return (
     <footer className="bg-wings-dark text-white dark:bg-wings-dark transition-colors duration-300">
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info with Spark Effect */}
-          <ClickSpark
+    <ClickSpark
             sparkColor="#ffcc00"
-            sparkSize={6}
-            sparkRadius={15}
+            sparkSize={8}
+            sparkRadius={25}
             sparkCount={6}
             duration={500}
           >
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info with Spark Effect */}
+          
             <div className="space-y-4">
               <div className="flex items-center mb-4">
                 <img 
@@ -76,7 +77,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </ClickSpark>
           
           <div>
             <h4 className="text-xl font-bold mb-6">{t('ourServices')}</h4>
@@ -148,6 +148,8 @@ const Footer = () => {
           </ClickSpark>
         </div>
       </div>
+    </ClickSpark>
+        
       
       <div className="bg-wings-dark dark:bg-black py-4 transition-colors duration-300">
         <div className="container-custom text-center text-sm text-gray-400">
