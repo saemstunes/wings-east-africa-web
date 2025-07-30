@@ -300,16 +300,16 @@ const Index = () => {
                   exit={{ opacity: 0, y: 50 }}
                   className="flex flex-col items-end"
                 >
-                  <Link 
+                  {/* <Link 
                     to="/sign-up" 
                     className="bg-wings-orange text-white py-3 px-6 rounded-full shadow-lg hover:bg-wings-orange/90 transition-colors flex items-center"
                   >
                     <LockOpen className="h-5 w-5 mr-2" />
                     <span>Create Account</span>
-                  </Link>
+                  </Link> */}
                   <Link 
                     to="/sign-in" 
-                    className="mt-2 border border-wings-orange text-wings-orange py-3 px-6 rounded-full shadow-lg hover:bg-wings-orange/10 transition-colors flex items-center"
+                    className="mx-auto mt-2 border border-wings-orange text-wings-orange py-3 px-6 rounded-full shadow-lg hover:bg-wings-orange/10 transition-colors flex items-center"
                   >
                     <Lock className="h-5 w-5 mr-2" />
                     <span>Sign In</span>
