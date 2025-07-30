@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Toggle } from '@/components/ui/toggle';
 import { Switch } from '@/components/ui/switch';
 import { useLanguage } from '../../contexts/LanguageContext';
-import ClickSpark from '@/components/ui/ClickSpark'; // Add ClickSpark import
 
 const navigation = [
   { name: 'home', href: '/' },
@@ -75,44 +74,35 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 bg-white/95 dark:bg-wings-dark/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-wings-dark/60 shadow-sm transition-colors duration-300">
       <nav className="container-custom mx-auto flex items-center justify-between py-4">
         <div className="flex items-center">
-          {/* Logo with Spark Effect */}
-          <ClickSpark
-            sparkColor={theme === 'dark' ? "#ffcc00" : "#1a3a6c"}
-            sparkSize={6}
-            sparkRadius={15}
-            sparkCount={6}
-            duration={500}
-          >
-            <Link to="/" className="flex items-center">
-              <div className="w-auto h-10 mr-3">
-                {theme === 'dark' ? (
-                  <img 
-                    src="/logo-light.png" 
-                    alt={companyName}
-                    className="h-full w-auto object-contain"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://i.imgur.com/zCRXN6K.png";
-                    }}
-                  />
-                ) : (
-                  <img 
-                    src="https://i.imgur.com/zCRXN6K.png" 
-                    alt={companyName}
-                    className="h-full w-auto object-contain rounded-md" 
-                    onError={(e) => {
-                      e.currentTarget.src = "https://i.imgur.com/zCRXN6K.png";
-                    }}
-                  />
-                )}
-              </div>
-              <span className="text-xl font-bold text-wings-navy dark:text-white font-poppins hidden md:block">
-                {companyName}
-              </span>
-              <span className="text-xl font-bold text-wings-navy dark:text-white font-poppins md:hidden">
-                {companyShort}
-              </span>
-            </Link>
-          </ClickSpark>
+          <Link to="/" className="flex items-center">
+            <div className="w-auto h-10 mr-3">
+              {theme === 'dark' ? (
+                <img 
+                  src="/logo-light.png" 
+                  alt={companyName}
+                  className="h-full w-auto object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://i.imgur.com/zCRXN6K.png";
+                  }}
+                />
+              ) : (
+                <img 
+                  src="https://i.imgur.com/zCRXN6K.png" 
+                  alt={companyName}
+                  className="h-full w-auto object-contain rounded-md" 
+                  onError={(e) => {
+                    e.currentTarget.src = "https://i.imgur.com/zCRXN6K.png";
+                  }}
+                />
+              )}
+            </div>
+            <span className="text-xl font-bold text-wings-navy dark:text-white font-poppins hidden md:block">
+              {companyName}
+            </span>
+            <span className="text-xl font-bold text-wings-navy dark:text-white font-poppins md:hidden">
+              {companyShort}
+            </span>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -132,70 +122,6 @@ const Navbar = () => {
           ))}
           <div className="flex items-center space-x-5">
             {/* Theme Toggle with Animation */}
-            <ClickSpark
-              sparkColor={theme === 'dark' ? "#ffcc00" : "#1a3a6c"}
-              sparkSize={4}
-              sparkRadius={10}
-              sparkCount={4}
-              duration={400}
-            >
-              <button 
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative"
-                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-              >
-                <AnimatePresence initial={false} mode="wait">
-                  {theme === 'dark' ? (
-                    <motion.div
-                      key="sun"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="flex items-center justify-center"
-                    >
-                      <Sun size={20} className="text-white" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="moon"
-                      initial={{ rotate: 90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -90, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="flex items-center justify-center"
-                    >
-                      <Moon size={20} className="text-wings-navy" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </button>
-            </ClickSpark>
-            
-            {/* Language Toggle */}
-            <ClickSpark
-              sparkColor={theme === 'dark' ? "#ffcc00" : "#1a3a6c"}
-              sparkSize={4}
-              sparkRadius={10}
-              sparkCount={4}
-              duration={400}
-            >
-              <div className="flex items-center space-x-2 ml-[-10px]">
-                <LanguageToggle />
-              </div>
-            </ClickSpark>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Button */}
-        <div className="md:hidden flex items-center space-x-4">
-          <ClickSpark
-            sparkColor={theme === 'dark' ? "#ffcc00" : "#1a3a6c"}
-            sparkSize={4}
-            sparkRadius={10}
-            sparkCount={4}
-            duration={400}
-          >
             <button 
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative"
@@ -227,27 +153,58 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </button>
-          </ClickSpark>
-          
-          <ClickSpark
-            sparkColor={theme === 'dark' ? "#ffcc00" : "#1a3a6c"}
-            sparkSize={4}
-            sparkRadius={10}
-            sparkCount={4}
-            duration={400}
+            
+            {/* Language Toggle */}
+            <div className="flex items-center space-x-2 ml-[-10px]">
+              <LanguageToggle />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Button */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative"
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-wings-navy dark:text-white"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
+            <AnimatePresence initial={false} mode="wait">
+              {theme === 'dark' ? (
+                <motion.div
+                  key="sun"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="flex items-center justify-center"
+                >
+                  <Sun size={20} className="text-white" />
+                </motion.div>
               ) : (
-                <Menu className="h-6 w-6" />
+                <motion.div
+                  key="moon"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="flex items-center justify-center"
+                >
+                  <Moon size={20} className="text-wings-navy" />
+                </motion.div>
               )}
-            </button>
-          </ClickSpark>
+            </AnimatePresence>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-wings-navy dark:text-white"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
       </nav>
 
