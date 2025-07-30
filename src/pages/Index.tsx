@@ -112,33 +112,33 @@ const Index = () => {
               {/* Vision & Mission Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
                 {/* Vision Card */}
-                <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-blue transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className="flex items-start mb-4">
-                    <div className="bg-gray-90 dark:bg-gray-900/50 p-3 rounded-full mr-4">
-                      <Eye className="h-6 w-6 text-wings-blue dark:text-blue-400" />
-                    </div>
-                    <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Vision</h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 pl-14">
-                    To be the leading provider of dependable engineering solutions across East Africa, 
-                    empowering industries through innovative power technologies and unwavering service excellence.
-                  </p>
-                </div>
-                
-                {/* Mission Card */}
-                <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className="flex items-start mb-4">
-                    <div className="bg-gray-90 dark:bg-gray-900/50 p-3 rounded-full mr-4">
-                      <Flag className="h-6 w-6 text-wings-blue dark:text-blue-400" />
-                    </div>
-                    <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Mission</h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 pl-14">
-                    To deliver high-quality engines, generators, and power systems with precision and reliability, 
-                    ensuring seamless operations through expert installation, proactive maintenance, and 24/7 support.
-                  </p>
-                </div>
-              </div>
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-blue transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div className="flex items-start mb-4">
+            <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full mr-4">
+              <Eye className="h-6 w-6 text-wings-blue dark:text-blue-400" />
+            </div>
+            <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Vision</h3>
+          </div>
+          <p className="text-gray-700 dark:text-gray-300 pl-14">
+            To be the leading provider of dependable engineering solutions across East Africa, 
+            empowering industries through innovative power technologies and unwavering service excellence.
+          </p>
+        </div>
+
+        {/* Mission Card */}
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div className="flex items-start mb-4">
+            <div className="bg-amber-100 dark:bg-amber-900/50 p-3 rounded-full mr-4">
+              <Flag className="h-6 w-6 text-wings-gold dark:text-amber-400" />
+            </div>
+            <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Mission</h3>
+          </div>
+          <p className="text-gray-700 dark:text-gray-300 pl-14">
+            To deliver high-quality engines, generators, and power systems with precision and reliability, 
+            ensuring seamless operations through expert installation, proactive maintenance, and 24/7 support.
+          </p>
+        </div>
+      </div>
               
               {/* Core Values */}
               <div className="text-center mb-12">
