@@ -29,8 +29,8 @@ const Footer = () => {
             sparkColor="#ffcc00"
             sparkSize={8}
             sparkRadius={25}
-            sparkCount={6}
-            duration={500}
+            sparkCount={8}
+            duration={400}
           >
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
