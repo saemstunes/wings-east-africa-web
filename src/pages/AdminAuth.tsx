@@ -28,7 +28,7 @@ const AdminAuth = () => {
     const performSecurityChecks = async () => {
       try {
         // Check 1: Validate route access
-        const validRoutes = ['/executive', '/dashboard'];
+        const validRoutes = ['/executive', '/dashboard', '/admin'];
         if (!validRoutes.includes(location.pathname)) {
           navigate('/', { replace: true });
           return;
