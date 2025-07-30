@@ -114,8 +114,8 @@ const Index = () => {
                 {/* Vision Card */}
                 <div className="group bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-blue transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div className="flex items-center my-2">
-                    <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4 group-hover:animate-blink">
-                      <Eye className="h-6 w-6 text-wings-orange dark:text-orange-300" />
+                    <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4">
+                      <Eye className="h-6 w-6 text-wings-orange dark:text-orange-300 group-hover:animate-blink" />
                     </div>
                     <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Vision</h3>
                   </div>
@@ -128,8 +128,8 @@ const Index = () => {
                 {/* Mission Card */}
                 <div className="group bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-wings-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div className="flex items-center my-2">
-                    <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4 group-hover:animate-wave">
-                      <Flag className="h-6 w-6 text-wings-orange dark:text-orange-300" />
+                    <div className="bg-orange-100 dark:bg-wings-dark/70 p-3 rounded-full mr-4">
+                      <Flag className="h-6 w-6 text-wings-orange dark:text-orange-300 group-hover:animate-wave" />
                     </div>
                     <h3 className="text-xl font-bold text-wings-navy dark:text-white">Our Mission</h3>
                   </div>
