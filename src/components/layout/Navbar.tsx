@@ -82,16 +82,16 @@ const Navbar = () => {
                   alt={companyName}
                   className="h-full w-auto object-contain"
                   onError={(e) => {
-                    e.currentTarget.src = "https://i.imgur.com/zCRXN6K.png";
+                    e.currentTarget.src = "https://i.imgur.com/957jR7C.png";
                   }}
                 />
               ) : (
                 <img 
-                  src="https://i.imgur.com/zCRXN6K.png" 
+                  src="https://i.imgur.com/957jR7C.png" 
                   alt={companyName}
                   className="h-full w-auto object-contain rounded-md" 
                   onError={(e) => {
-                    e.currentTarget.src = "https://i.imgur.com/zCRXN6K.png";
+                    e.currentTarget.src = "https://i.imgur.com/957jR7C.png";
                   }}
                 />
               )}
