@@ -56,7 +56,7 @@ const LanguageToggle = () => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ children }: { children?: React.ReactNode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { theme, setTheme } = useTheme();
@@ -158,11 +158,25 @@ const Navbar = () => {
             <div className="flex items-center space-x-2 ml-[-10px]">
               <LanguageToggle />
             </div>
+            
+            {/* SECRET BUTTON POSITION FOR DESKTOP: Right of language switch */}
+            {children && (
+              <div className="ml-2">
+                {children}
+              </div>
+            )}
           </div>
         </div>
 
         {/* Mobile Navigation Button */}
         <div className="md:hidden flex items-center space-x-4">
+          {/* SECRET BUTTON POSITION FOR MOBILE: Left of theme toggle */}
+          {children && (
+            <div className="mr-1">
+              {children}
+            </div>
+          )}
+          
           <button 
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative"
