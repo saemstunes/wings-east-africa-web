@@ -102,7 +102,7 @@ const ServicesSummary = () => {
               className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow group"
             >
               <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-wings-navy mb-3">{t(service.name)}</h3>
+              <h3 className="text-xl font-semibold text-wings-navy mb-3">{t(service.titleKey)}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
               <Link 
                 to={service.link} 
