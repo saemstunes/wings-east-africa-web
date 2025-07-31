@@ -228,6 +228,7 @@ const Index = () => {
               {/* Values Grid - Using only brand colors */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
+                   "Faith",
                    "Reliability",
                    "Excellence",
                    "Integrity",
@@ -246,6 +247,8 @@ const Index = () => {
                <p className="text-gray-600 dark:text-gray-400 text-sm">
                  {(() => {
           switch(value) {
+            case "Faith":
+              return "Our virtues and guiding principles are informed by our faith in God. Nothing is impossible with Him";
             case "Reliability": 
               return "Consistent, dependable power solutions that keep operations running without fail";
             case "Excellence": 
