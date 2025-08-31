@@ -5,12 +5,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Shield, Eye, EyeOff, Building2 } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
+import { Shield, Eye, EyeOff, Building2, Mail } from 'lucide-react';
+import { useAuth } from '@/contexts/SecureAuthContext';
+import { useToast } from '@/components/ui/use-toast';
 
 const AdminLogin = () => {
-  const { login, loading } = useAuth();
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
+  const { signIn, loading } = useAuth();
+  const { toast } = useToast();
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [attemptCount, setAttemptCount] = useState(0);
@@ -24,12 +26,22 @@ const AdminLogin = () => {
       return;
     }
 
-    const success = await login(credentials.username, credentials.password);
+    const { error: signInError } = await signIn(credentials.email, credentials.password);
     
-    if (!success) {
+    if (signInError) {
       setAttemptCount(prev => prev + 1);
       setError('Invalid credentials. Access restricted to authorized personnel only.');
-      setCredentials({ username: '', password: '' });
+      setCredentials({ email: '', password: '' });
+      toast({
+        title: "Authentication Failed",
+        description: signInError.message,
+        variant: "destructive"
+      });
+    } else {
+      toast({
+        title: "Authentication Successful",
+        description: "Welcome to the admin dashboard.",
+      });
     }
   };
 
@@ -52,15 +64,16 @@ const AdminLogin = () => {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="username" className="text-wings-navy font-medium">
-                Username
+              <Label htmlFor="email" className="text-wings-navy font-medium">
+                <Mail className="h-4 w-4 inline mr-2" />
+                Email Address
               </Label>
               <Input
-                id="username"
-                type="text"
-                value={credentials.username}
-                onChange={(e) => setCredentials({...credentials, username: e.target.value})}
-                placeholder="Enter executive username"
+                id="email"
+                type="email"
+                value={credentials.email}
+                onChange={(e) => setCredentials({...credentials, email: e.target.value})}
+                placeholder="Enter admin email address"
                 className="h-12"
                 required
                 disabled={loading}
@@ -77,7 +90,7 @@ const AdminLogin = () => {
                   type={showPassword ? 'text' : 'password'}
                   value={credentials.password}
                   onChange={(e) => setCredentials({...credentials, password: e.target.value})}
-                  placeholder="Enter secure access code"
+                  placeholder="Enter secure password"
                   className="h-12 pr-12"
                   required
                   disabled={loading}
